@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Supporter Goal Settings</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/css/supporter-goal-settings.css">
+        <script src="/js/jquery.js"></script>
+        <script src="/js/supporter-goal-settings.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="success-dialog">
+                <div id="success-dialog-container">
+                    <div id="success-dialog-title">
+                        Changes saved!
+                    </div>
+                    <div id="success-dialog-content">
+                        Goal updates will appear on the overlay within the next 15 seconds.
+                    </div>
+                </div>
+            </div>
+            
+            <div id="header" class="section">
+                <h1>Manage Supporter Goal</h1>
+            </div>
+            
+            <div id="content" class="section">
+                <div class="form-row">
+                    <div class="form-label">
+                        <span>Current Supporters Count:</span>
+                    </div>
+                    <div class="form-control">
+                        <input id="form-field--current" type="number" class="form-control-input">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-label">
+                        <span>Goal:</span>
+                    </div>
+                    <div class="form-control">
+                        <input id="form-field--goal" type="number" class="form-control-input">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-label">
+                        <span>Counter Position:</span>
+                    </div>
+                    <div class="form-control">
+                        <select id="form-field--position">
+                            <option value="top-left">Top Left</option>
+                            <option value="top-right">Top Right</option>
+                            <option value="bottom-left">Bottom Left</option>
+                            <option value="bottom-right">Bottom Right</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-label">
+                        <span>Show Counter:</span>
+                    </div>
+                    <div class="form-control">
+                        <select id="form-field--show">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="footer" class="section">
+                <button class="btn" id="save">Make changes</button>
+            </div>
+        </div>
+    </body>
+</html>
