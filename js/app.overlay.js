@@ -5,7 +5,7 @@
  * File created: 1/10/2018, 9:53pm
  */
 
-// Global-accessible data array variables
+// 1: Global Reusable Variables, Objects and Arrays
 var appData = {};
 var overlayAliasData = [];
 var overlayThemesData = [];
@@ -17,20 +17,14 @@ var activeTheme = {};
 var fallbackTheme = {};
 var gamePlatformData = {};
 var supporterOverlay = {};
-
-// Global-accessible default variables
 var theme = "";
 var noticeDuration = 60;
 var noticeDelay = 10;
-
-// File name variable
 var currentLocation = document.location.href;
 var filename = currentLocation.substr(currentLocation.lastIndexOf('/') + 1).replace(".html", "");
 
 $(function(){
-    /**
-     * Get relevant cookies from browser for app and set them as global variables
-     */
+    // 2: Get file-name specified cookies and assign variables
     var cookie_theme = getCookie("overlay_theme_" + filename);
     var cookie_gamename = getCookie("overlay_gamename_" + filename);
     var cookie_social = getCookie("overlay_socialpreset_" + filename);
@@ -40,14 +34,17 @@ $(function(){
     var cookie_delay = getCookie("overlay_delay_" + filename);
     var cookie_platform = getCookie("overlay_platform_" + filename);
     
+    // 3: Get supporter settings cookies and assign to variables
     var supporters_current = getCookie("supporters_overlay_current");
     var supporters_total = getCookie("supporters_overlay_total");
     var supporters_position = getCookie("supporters_overlay_position");
     var supporters_state = getCookie("supporters_overlay_state");
     
+    // 4: Use global or full camera overlay shell
     var shell_loc = "/app/layouts/overlay/global.html";
     if(filename === "full") shell_loc = "/app/layouts/overlay/full.html";
     
+    // 5: Get shell and load into container
     $.ajax({
         url: shell_loc,
         async: false,
@@ -58,9 +55,10 @@ $(function(){
         }
     });
     
+    // 6: Fill shell up with data and fetch modal
     function getAppData(){
         
-        // Get overlay data and set appData array
+        // 6A: Get overlay data and store in appData Object
         $.ajax({
             url: "/app/data/overlay.json",
             async: false,
@@ -71,7 +69,7 @@ $(function(){
             }
         });
         
-        // Get settings holder and append to app
+        // 6B: Get settings modal for overlay
         $.ajax({
             url: "/app/layouts/settings-modal/overlay.html",
             async: false,
@@ -81,6 +79,7 @@ $(function(){
             }
         });
         
+        // 6C: Assign arrays with specific data
         overlayAliasData = appData.aliases;
         overlayThemesData = appData.theme;
         overlayNoticesData = appData.notices;
@@ -88,12 +87,11 @@ $(function(){
         overlaySocialPresetData = appData.social_presets;
         gamePlatformData = appData.platform;
         
+        // 6D: Continue with setting the overlay theme
         setOverlayTheme();
     }
     
-    /**
-     * Set the theme first, in a cancel-out-step by step method
-     */
+    // 7: Set the overlay theme based on file-given theme or what is in the cookies settings
     function setOverlayTheme(defaultTheme = false){
         
         // create variable used for filtering purposes in later stage
@@ -432,9 +430,10 @@ $(function(){
         }, 1*1000);
     }
     
+    // Check for updates every 7 seconds
     supporterGoalInterval = setInterval(function(){
         checkForSupporterUpdates();
-    }, 15 * 1000);
+    }, 5 * 1000);
     
     function checkForSupporterUpdates(){
         var changesDetected = false;
@@ -447,18 +446,16 @@ $(function(){
         if(getCookie("supporters_overlay_total") !== cachedGoal) changesDetected = true;
         if(getCookie("supporters_overlay_position") !== cachedPosition) changesDetected = true;
         if(getCookie("supporters_overlay_state") !== cachedState) changesDetected = true;
-        
-        if(changesDetected){
-            supporterOverlay["current"] = getCookie("supporters_overlay_current");
-            supporterOverlay["goal"] = getCookie("supporters_overlay_total");
-            supporterOverlay["position"] = getCookie("supporters_overlay_position");
-            supporterOverlay["show"] = getCookie("supporters_overlay_state");
-            restartSupporterGoal();
-        }
+        if(changesDetected) restartSupporterGoal();
     }
     
     // remove from screen and restart animation
     function restartSupporterGoal(){
+        supporterOverlay["current"] = getCookie("supporters_overlay_current");
+        supporterOverlay["goal"] = getCookie("supporters_overlay_total");
+        supporterOverlay["position"] = getCookie("supporters_overlay_position");
+        supporterOverlay["show"] = getCookie("supporters_overlay_state");
+        
         var $sc_container = $("#supporter-counter-container");
         
         if(supporterOverlay["show"] === "true"){
