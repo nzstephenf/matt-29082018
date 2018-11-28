@@ -2,6 +2,7 @@ $(function(){
     var filedir = document.location.href;
     var filename = filedir.substr(filedir.lastIndexOf('/') + 1).replace(".html","");
     
+    var $supportercounter = $("#supporter-counter-container");
     // create variables with default
     var theme_primary = "#499999";
     var theme_secondary = "#2c7f7f";
@@ -51,16 +52,29 @@ $(function(){
     }
     
     function runAnimation(){
-        $(".fb-supporter-cta-header").addClass("active");
+        if(activeSupporter["state"] === true){
+            if($("#supporter-counter-container").hasClass("top-right")){
+                $("#supporter-counter-back").removeClass("active"); 
+
+                setTimeout(function(){
+                    $("#supporter-counter").removeClass("active");
+                    $("#supporter-counter-progress-bar").css("width", "0%");
+                }, 500);
+            }
+        }
         
         setTimeout(function(){
-            $(".fb-supporter-cta-footer").addClass("active");
-            
+            $(".fb-supporter-cta-header").addClass("active");
+
             setTimeout(function(){
-                $(".fb-supporter-cta-content-item:first-child").addClass("active");
-                togglePerk();
-            }, 400);
-        }, 200);
+                $(".fb-supporter-cta-footer").addClass("active");
+
+                setTimeout(function(){
+                    $(".fb-supporter-cta-content-item:first-child").addClass("active");
+                    togglePerk();
+                }, 400);
+            }, 200);
+        }, 900);
     }
     
     function endAnimation(){
@@ -71,10 +85,33 @@ $(function(){
                 $(".fb-supporter-cta-header").removeClass("active");
                 
                 setTimeout(function(){
+                    if(activeSupporter["state"] === true){
+                        if($("#supporter-counter-container").hasClass("top-right")){
+                            $("#supporter-counter-back").addClass("active"); 
+
+                            setTimeout(function(){
+                                $("#supporter-counter").addClass("active");   
+                                UpdateSupporterGoalProgressBar();
+                            }, 900);
+                        }
+                    }
+                }, 900);
+                
+                setTimeout(function(){
                     runAnimation();
                 }, 5 * 60000);
             }, 200);            
         }, 400);
+    }
+    
+    function UpdateSupporterGoalProgressBar(){
+         // set to zero
+        $("#supporter-counter-progress-bar").css("width", "0%");
+        
+        setTimeout(function(){
+            var supporterPercentage = (supportersOverlay["current"] / supportersOverlay["goal"] * 100);
+            $("#supporter-counter-progress-bar").css("width", supporterPercentage + "%");
+        }, 1500);
     }
     
     function getCookie(name) {

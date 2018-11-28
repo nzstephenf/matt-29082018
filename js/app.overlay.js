@@ -389,22 +389,24 @@ $(function(){
         
         if(supportersOverlay["state"] === true){
             setTimeout(function(){
-                
                 $("#supporter-counter-progress-bar").css("width", "0%");
-                if($("#supporter-counter").hasClass("active")) $("#supporter-counter").removeClass("active");
-            
+                
                 setTimeout(function(){
-                    $supportercounter.removeAttr("class");
-                    $supportercounter.addClass(supportersOverlay["position"]);
-                    
-                    if($("#info-bar").attr("data-placement") == 1){
-                        if($supportercounter.hasClass("infobar-top")) $supportercounter.removeClass("infobar-top");
-                        if($supportercounter.hasClass("bottom-left") || $supportercounter.hasClass("bottom-right")) $supportercounter.addClass("infobar-bottom");
-                    } else {
-                        if($supportercounter.hasClass(".infobar-bottom")) $supportercounter.removeClass("infobar-bottom");
-                        if($supportercounter.hasClass("top-left") || $supportercounter.hasClass("top-right")) $supportercounter.addClass("infobar-top");
-                    }
-                }, 1000);
+                    if($("#supporter-counter").hasClass("active")) $("#supporter-counter").removeClass("active");
+            
+                    setTimeout(function(){
+                        $supportercounter.removeAttr("class");
+                        $supportercounter.addClass(supportersOverlay["position"]);
+
+                        if($("#info-bar").attr("data-placement") == 1){
+                            if($supportercounter.hasClass("infobar-top")) $supportercounter.removeClass("infobar-top");
+                            if($supportercounter.hasClass("bottom-left") || $supportercounter.hasClass("bottom-right")) $supportercounter.addClass("infobar-bottom");
+                        } else {
+                            if($supportercounter.hasClass(".infobar-bottom")) $supportercounter.removeClass("infobar-bottom");
+                            if($supportercounter.hasClass("top-left") || $supportercounter.hasClass("top-right")) $supportercounter.addClass("infobar-top");
+                        }
+                    }, 1000);
+                }, 500);
             }, 1000);
             
             setTimeout(function(){
