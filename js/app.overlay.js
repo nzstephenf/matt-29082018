@@ -317,7 +317,7 @@ $(function(){
             setTimeout(function(){
                 $("#info-bar-left").addClass("active");
                 $("#info-bar-right").addClass("active");
-                if(supportersOverlay["state"] === "true"){
+                if(supportersOverlay["state"] === true){
                     $("#supporter-counter-back").addClass("active"); 
 
                     setTimeout(function(){
