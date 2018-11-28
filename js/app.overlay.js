@@ -15,16 +15,16 @@ storedOverlayData = (storedOverlayData) ? JSON.parse(storedOverlayData) : {}, st
 activeNotice = (activeNoticeData) ? JSON.parse(activeNoticeData) : {}, supportersOverlay = storedSupportersOverlayData;
 
 $(function(){
+    if(!localStorage.getItem("supporters-overlay")) createStorageItem("supporters-overlay");
+    if(!localStorage.getItem("countdown")) createStorageItem("countdown");
+    if(!localStorage.getItem("notice-cta")) createStorageItem("notice-cta");
+
     OverlayInit();
     
     OverlayUpdateInterval = setInterval(function(){
         CheckForSupporterGoalUpdates();
         CheckForNoticesUpdates();
     }, 5 * 1000);
-    
-    if(!localStorage.getItem("supporters-overlay")) createStorageItem("supporters-overlay");
-    if(!localStorage.getItem("countdown")) createStorageItem("countdown");
-    if(!localStorage.getItem("notice-cta")) createStorageItem("notice-cta");
     
     /**
      * Create storage objects if not present
