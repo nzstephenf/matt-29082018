@@ -1,4 +1,4 @@
-                    <div class="settings-modal-close" data-modal-close><i class="fas fa-times"></i></div>
+                    <div class="settings-modal-close"><i class="fas fa-times"></i></div>
 
                     <div id="settings-content">
                         <div class="settings-header">Overlay Settings</div>
@@ -16,7 +16,7 @@
                                 <span>Theme Profile:</span>
                             </div>
                             <div class="settings-content--col-right">
-                                <select id="settings-form-themes" name="themes">
+                                <select id="settings-themes" name="themes">
                                     <option value="default">Select a theme</option>
                                 </select>
                             </div>
@@ -36,7 +36,7 @@
                                 <span>Social Preset:</span>
                             </div>
                             <div class="settings-content--col-right">
-                                <select id="settings-form-social-preset" name="socials">
+                                <select id="settings-socialpreset" name="socials">
                                     <option>Select a social preset</option>
                                 </select>
                             </div>
@@ -47,7 +47,7 @@
                                 <span>Game Name:</span>
                             </div>
                             <div class="settings-content--col-right">
-                                <input id="settings-form-game" type="text" name="game" class="form-control">
+                                <input id="settings-game" type="text" name="game" class="form-control">
                             </div>
                         </div>
                         
@@ -56,7 +56,7 @@
                                 <span>Info/socialbar:</span>
                             </div>
                             <div class="settings-content--col-right">
-                                <select id="settings-form-placement">
+                                <select id="settings-placement">
                                     <option value="0">Info bar shows at top</option>
                                     <option value="1">Info bar shows at bottom</option>
                                 </select>
@@ -68,7 +68,7 @@
                                 <span>Game Platform:</span>
                             </div>
                             <div class="settings-content--col-right">
-                                <select id="settings-form-platform">
+                                <select id="settings-platform">
                                     <option value="0">Select Platform/None</option>
                                 </select>
                             </div>
@@ -79,18 +79,61 @@
                                 <span>Show camera border:</span>
                             </div>
                             <div class="settings-content--col-right">
-                                <select id="settings-form-camborder" name="placement">
+                                <select id="settings-camborder" name="placement">
                                     <option>Select</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                 </select>
                             </div>
                         </div-->
+                        
+                        <div id="settings-notice-header">Notice/CTA Graphic Settings</div>
+                        
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Select Notice:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <select id="settings-notices" name="notice">
+                                    <option>(none)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-content--row">
+                            <div class="alert-block" data-field-id="notices">
+                                <span>
+                                    The notice/cta you've selected will override the delay and duration settings you currently have.
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div id="notice-form">
+                            <div class="settings-content--row">
+                                <div class="settings-content--col-left">
+                                    <span>Delay:</span>
+                                </div>
+                                <div class="settings-content--col-right">
+                                    <input id="settings-delay" min="1" type="number" name="delay" class="form-control">
+                                    <span>minutes</span>
+                                </div>
+                            </div>
+
+                            <div class="settings-content--row">
+                                <div class="settings-content--col-left">
+                                    <span>Duration:</span>
+                                </div>
+                                <div class="settings-content--col-right">
+                                    <input id="settings-duration" min="5" type="number" name="duration" class="form-control">
+                                    <span>seconds</span>
+                                </div>
+                            </div>
+                        </div>
                     
                         <div class="settings-content--row">
-                            <button class="btn" id="save-settings">Save changes</button>
-                            <button class="btn" id="refresh-overlay">Restart Overlay</button>
-                            <button class="btn danger right" id="reset-settings">Reset</button>
+                            <button class="btn" id="settings-save">Save changes</button>
+                            <button class="btn" id="settings-refresh">Restart Overlay</button>
+                            <button class="btn danger right" id="settings-reset">Reset</button>
                         </div>
                     </div>
                     
@@ -103,7 +146,7 @@
                         </div>
 
                         <div class="settings-reset-buttons">
-                            <button class="btn danger" id="confirmed-reset-settings">Yes, reset to default</button>
-                            <button class="btn" id="backout-reset-settings">No, keep as is</button>
+                            <button class="btn danger" id="settings-reset-confirmed">Yes, reset to default</button>
+                            <button class="btn" id="settings-reset-backout">No, keep as is</button>
                         </div>
                     </div>

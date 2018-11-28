@@ -6,11 +6,12 @@ $(function(){
     var theme_primary = "#499999";
     var theme_secondary = "#2c7f7f";
     
-    var cookie_delay = getCookie("overlay_delay_"+ filename);
-    var cookie_duration = getCookie("overlay_duration_"+ filename);
+    var SupporterStoredData = localStorage.getItem("supporters-overlay"), NoticeStoredData = localStorage.getItem("notice-cta");
+    var activeSupporter = (SupporterStoredData) ? JSON.parse(SupporterStoredData) : {}, activeNotice = (NoticeStoredData) ? JSON.parse(NoticeStoredData) : {};
+    var delay = 5, duration = 30;
     
-    if(cookie_delay) delay = cookie_delay;
-    if(cookie_duration) duration = cookie_duration;
+    if(activeNotice["delay"]) delay = activeNotice["delay"];
+    if(activeNotice["duration"]) duration = activeNotice["duration"];
     
     $.each(appData.theme, function(i, item){
         if(item.id === theme){
@@ -58,7 +59,7 @@ $(function(){
             setTimeout(function(){
                 $(".fb-supporter-cta-content-item:first-child").addClass("active");
                 togglePerk();
-            }, 420);
+            }, 400);
         }, 200);
     }
     
@@ -73,7 +74,7 @@ $(function(){
                     runAnimation();
                 }, 5 * 60000);
             }, 200);            
-        }, 300);
+        }, 400);
     }
     
     function getCookie(name) {

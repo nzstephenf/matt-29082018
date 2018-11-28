@@ -14,33 +14,37 @@
     ],
     "notices": [
         {
+            "id": "default",
+            "title": "(None)",
+            "url": "/notices/empty.html",
+            "override": false
+        },
+        {
             "id": "fb_supporter",
-            "title": "Facebook Supporter",
+            "title": "FB Stream Supporter CTA",
             "url": "/notices/supporter.html",
+            "description": "The FB Stream Supporter CTA has supporter perk info and a CTA link",
             "override": true
         },
         {
             "id": "steam_group",
             "title": "Steam Group CTA",
             "url": "/notices/steam-group.html",
+            "description": "Promote the Steam Group through this mini-overlay. A CTA Link is shown.",
             "override": false
         },
         {
             "id": "youtube_push",
             "title": "YouTube Channel CTA",
             "url": "/notices/youtube-channel.html",
+            "description": "Promote the YouTube Channel. A CTA link is shown in this mini-overlay.",
             "override": false
         },
         {
             "id": "steam_discord",
-            "title": "Steam & Discord CTA",
+            "title": "Steam & Discord Plug",
             "url": "/notices/steam-discord.html",
-            "override": false
-        },
-        {
-            "id": "schedule_8pm",
-            "title": "Schedule Alert (Weekdays 8pm PST)",
-            "url": "/notices/schedule-alert-weekdays8pm.html",
+            "description": "Promote  both the Steam Group and Discord Server with this mini-overlay.",
             "override": false
         }
     ],
@@ -145,6 +149,15 @@
             "info_bar": "#006566",
             "info_bar_odd": "#499999",
             "info_bar_even": "#2c7f7f"
+        },
+        {
+            "id": "artifact",
+            "title": "Artifact",
+            "platform": 1,
+            "placement": 0,
+            "info_bar": "#000000",
+            "info_bar_odd": "#b8240c",
+            "info_bar_even": "#530b06"
         },
         {
             "id": "battleriteroyale",

@@ -3,10 +3,18 @@
         {
             "id": "brb",
             "title": "I'll be right back",
+            "title_secondary": "",
+            "countdown": false,
             "social_cta": "Find me on social",
             "video": "/vid/brb.mp4",
             "show_chairhinki": "yes",
             "colours": {
+                "primary": "#b92b15",
+                "secondary": "#ff7e69",
+                "dark": "#7f3f35",
+                "light": "#cc2f17"
+            },
+            "colours_legacy": {
                 "primary": "#b92b15",
                 "secondary": "#7d0000",
                 "triangle": "#f86544",
@@ -95,10 +103,18 @@
         {
             "id": "stream-end",
             "title": "Thanks for watching!",
+            "title_secondary": "",
+            "countdown": false,
             "social_cta": "Find me on social",
             "video": "/vid/end.mp4",
             "show_chairhinki": "yes",
             "colours": {
+                "primary": "#341990",
+                "secondary": "#9779ff",
+                "dark": "#4c3c7f",
+                "light": "#4a23cc"
+            },
+            "colours_legacy": {
                 "primary": "#341990",
                 "secondary": "#6d49c7",
                 "triangle": "#100176",
@@ -130,11 +146,19 @@
         },
         {
             "id": "starting-soon",
-            "title": "Stream is about to start",
+            "title": "The stream is about to start",
+            "title_secondary": "",
             "social_cta": "Find me on social",
             "video": "/vid/startingsoon.mp4",
+            "countdown": true,
             "show_chairhinki": "no",
             "colours": {
+                "primary": "#009999",
+                "secondary": "#4cffff",
+                "dark": "#267f7f",
+                "light": "#00cccc"
+            },
+            "colours_legacy": {
                 "primary": "#009999",
                 "secondary": "#006566",
                 "triangle": "#5ad0cf",
