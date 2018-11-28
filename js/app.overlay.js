@@ -26,40 +26,6 @@ $(function(){
         CheckForNoticesUpdates();
     }, 5 * 1000);
     
-    /**
-     * Create storage objects if not present
-     */
-    function createStorageItem(storageItemId = ""){
-        switch(storageItemId){
-            case "supporters-overlay":
-                localStorage.setItem("supporters-overlay", JSON.stringify({
-                    "current": 0,
-                    "goal": 100,
-                    "position": "bottom-left",
-                    "state": false
-                }));
-                break;
-            case "countdown":
-                localStorage.setItem("countdown", JSON.stringify({
-                    "minutes": 1,
-                    "seconds": 59,
-                    "state": false
-                }));
-                break;
-            case "notice-cta":
-                var date = new Date();
-                localStorage.setItem("notice-cta", JSON.stringify({
-                    "timestamp": date.getTime(), 
-                    "notice": "fb_supporter",
-                    "notice_url": "/notices/supporter.html",
-                    "delay": 5,
-                    "duration": 30
-                }));
-                break;
-        }
-        
-    }
-    
     function OverlayInit(){
         var shell_loc = "/app/layouts/overlay/global.html";
         if(filename === "full") shell_loc = "/app/layouts/overlay/full.html";
@@ -421,7 +387,7 @@ $(function(){
         
         var $supportercounter = $("#supporter-counter-container");
         
-        if(supportersOverlay["state"] === "true"){
+        if(supportersOverlay["state"] === true){
             setTimeout(function(){
                 
                 $("#supporter-counter-progress-bar").css("width", "0%");
