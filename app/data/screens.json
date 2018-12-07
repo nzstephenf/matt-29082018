@@ -6,6 +6,7 @@
             "title_secondary": "",
             "countdown": false,
             "social_cta": "Find me on social",
+            "social_preset": "default",
             "video": "/vid/brb.mp4",
             "show_chairhinki": "yes",
             "colours": {
@@ -106,6 +107,7 @@
             "title_secondary": "",
             "countdown": false,
             "social_cta": "Find me on social",
+            "social_preset": "default",
             "video": "/vid/end.mp4",
             "show_chairhinki": "yes",
             "colours": {
@@ -149,6 +151,7 @@
             "title": "The stream is about to start",
             "title_secondary": "",
             "social_cta": "Find me on social",
+            "social_preset": "default",
             "video": "/vid/startingsoon.mp4",
             "countdown": true,
             "show_chairhinki": "no",

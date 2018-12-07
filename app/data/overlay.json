@@ -10,7 +10,8 @@
         { "id": "mtg", "original": "magicthegathering" },
         { "id": "f13", "original": "fridaythe13ththegame" },
         { "id": "pubg", "original": "playerunknownsbattlegrounds" },
-        { "id": "gtav", "original": "grandtheftautov" }
+        { "id": "gtav", "original": "grandtheftautov" },
+        { "id": "smash", "original": "supersmashbrosultimate" }
     ],
     "notices": [
         {
@@ -25,27 +26,6 @@
             "url": "/notices/supporter.html",
             "description": "The FB Stream Supporter CTA has supporter perk info and a CTA link",
             "override": true
-        },
-        {
-            "id": "steam_group",
-            "title": "Steam Group CTA",
-            "url": "/notices/steam-group.html",
-            "description": "Promote the Steam Group through this mini-overlay. A CTA Link is shown.",
-            "override": false
-        },
-        {
-            "id": "youtube_push",
-            "title": "YouTube Channel CTA",
-            "url": "/notices/youtube-channel.html",
-            "description": "Promote the YouTube Channel. A CTA link is shown in this mini-overlay.",
-            "override": false
-        },
-        {
-            "id": "steam_discord",
-            "title": "Steam & Discord Plug",
-            "url": "/notices/steam-discord.html",
-            "description": "Promote  both the Steam Group and Discord Server with this mini-overlay.",
-            "override": false
         }
     ],
     "social_presets": [
@@ -140,7 +120,8 @@
         { "title": "" },
         { "title": "PC" },
         { "title": "PS4" },
-        { "title": "Xbox" }
+        { "title": "Xbox" },
+        { "title": "Switch" }
     ],
     "theme": [
         {
@@ -306,6 +287,15 @@
             "info_bar": "#bd050f",
             "info_bar_odd": "#333333",
             "info_bar_even": "#282828"
+        },
+        {
+            "id": "supersmashbrosultimate",
+            "title": "Super Smash Bros. Ultimate",
+            "platform": 4,
+            "placement": 0,
+            "info_bar": "#408C22",
+            "info_bar_odd": "#3B7F1F",
+            "info_bar_even": "#59BF2E"
         },
         {
             "id": "xcom2",

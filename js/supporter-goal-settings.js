@@ -261,7 +261,7 @@ $(function(){
      * Save Supporter Goal Settings
      */
     function SaveSupporterGoalSettings(){
-        var processedFormState;
+        var processedFormState, date = new Date();
         
         if(form__supporters__state.val() !== null){
             processedFormState = form__supporters__state.val();
@@ -270,6 +270,7 @@ $(function(){
         }
         
         activeSupporters = {
+            "timestamp": date.getTime(),
             "current": form__supporters__current.val(),
             "goal": form__supporters__goal.val(),
             "position": form__supporters__position.val(),
