@@ -122,7 +122,8 @@
         { "title": "PC" },
         { "title": "PS4" },
         { "title": "Xbox" },
-        { "title": "Switch" }
+        { "title": "Switch" },
+        { "title": "Discord/PC" }
     ],
     "theme": [
         {
@@ -255,8 +256,8 @@
         },
         {
             "id": "lastnightthenightmare",
-            "title": "Last Night: The Nightmare (Discord Store)",
-            "platform": 1,
+            "title": "Last Night: The Nightmare",
+            "platform": 5,
             "placement": 0,
             "info_bar": "",
             "info_bar_odd": "#019b49",
