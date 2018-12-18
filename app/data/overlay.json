@@ -11,7 +11,8 @@
         { "id": "f13", "original": "fridaythe13ththegame" },
         { "id": "pubg", "original": "playerunknownsbattlegrounds" },
         { "id": "gtav", "original": "grandtheftautov" },
-        { "id": "smash", "original": "supersmashbrosultimate" }
+        { "id": "smash", "original": "supersmashbrosultimate" },
+        { "id": "lastnight", "original": "lastnightthenightmare" }
     ],
     "notices": [
         {
@@ -251,6 +252,15 @@
             "info_bar": "#101015",
             "info_bar_odd": "#434449",
             "info_bar_even": "#2f2f35"
+        },
+        {
+            "id": "lastnightthenightmare",
+            "title": "Last Night: The Nightmare (Discord Store)",
+            "platform": 1,
+            "placement": 0,
+            "info_bar": "",
+            "info_bar_odd": "#019b49",
+            "info_bar_even": "#379663"
         },
         {
             "id": "magicthegathering",
