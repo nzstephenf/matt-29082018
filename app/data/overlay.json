@@ -12,7 +12,7 @@
         { "id": "pubg", "original": "playerunknownsbattlegrounds" },
         { "id": "gtav", "original": "grandtheftautov" },
         { "id": "smash", "original": "supersmashbrosultimate" },
-        { "id": "lastnight", "original": "lastnightthenightmare" }
+        { "id": "lastnight", "original": "lastyearthenightmare" }
     ],
     "notices": [
         {
@@ -254,8 +254,8 @@
             "info_bar_even": "#2f2f35"
         },
         {
-            "id": "lastnightthenightmare",
-            "title": "Last Night: The Nightmare",
+            "id": "lastyearthenightmare",
+            "title": "Last Year: The Nightmare",
             "platform": 1,
             "placement": 0,
             "info_bar": "#333333",
