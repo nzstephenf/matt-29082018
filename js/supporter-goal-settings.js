@@ -132,11 +132,11 @@ $(function(){
         $("select").customSelect();
         
         // Initialise the countdownObj loop if countdown state is true
-        if(activeCountdown["state"] === "true"){
+       /** if(activeCountdown["state"] === "true"){
             countdownObj = setInterval(function(){
                 UpdateCountdown();
             }, 1000);
-        }
+        } **/
     }
     
     /**
@@ -166,7 +166,7 @@ $(function(){
     $("#save-noticecta").click(function(){
         SaveNoticeCallToActionSettings();
     })
-    
+    /**
     $("#start-countdown").click(function(){
         StartCountdown();
         ToggleCountdownStateButton("start");
@@ -176,7 +176,7 @@ $(function(){
         StopCountdown();
         ToggleCountdownStateButton("stop");
     });
-    
+    **/
     $("#notice-form-notice").change(function(){
         UpdateNoticeSection($(this).val());
         GetNoticeUrl($(this).val());
