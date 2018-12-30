@@ -12,7 +12,8 @@
         { "id": "pubg", "original": "playerunknownsbattlegrounds" },
         { "id": "gtav", "original": "grandtheftautov" },
         { "id": "smash", "original": "supersmashbrosultimate" },
-        { "id": "lastyear", "original": "lastyearthenightmare" }
+        { "id": "lastyear", "original": "lastyearthenightmare" },
+        { "id": "bf2", "original": "starwarsbattlefront2" }
     ],
     "notices": [
         {
@@ -297,6 +298,15 @@
             "info_bar": "#bd050f",
             "info_bar_odd": "#333333",
             "info_bar_even": "#282828"
+        },
+        {
+            "id": "starwarsbattlefront2",
+            "title": "Star Wars Battlefront II",
+            "platform": 1,
+            "placement": 0,
+            "info_bar": "#dbd000",
+            "info_bar_odd": "#006660",
+            "info_bar_even": "#008c84"
         },
         {
             "id": "supersmashbrosultimate",
