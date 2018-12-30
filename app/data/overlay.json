@@ -304,9 +304,9 @@
             "title": "Star Wars Battlefront II",
             "platform": 1,
             "placement": 0,
-            "info_bar": "#dbd000",
-            "info_bar_odd": "#006660",
-            "info_bar_even": "#008c84"
+            "info_bar": "#0c1723",
+            "info_bar_odd": "#00438c",
+            "info_bar_even": "#003268"
         },
         {
             "id": "supersmashbrosultimate",
