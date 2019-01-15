@@ -1,0 +1,109 @@
+                    <div class="settings-modal-close" data-modal-close><i class="fas fa-times"></i></div>
+
+                    <div id="settings-content">
+                        <div class="settings-header">Overlay Settings</div>
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Target File:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <span id="target"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Theme Profile:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <select id="settings-form-themes" name="themes">
+                                    <option value="default">Select a theme</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-content--row">
+                            <div id="settings-colour-bar">
+                                <div id="settings-colour-bar-1">Info Bar</div>
+                                <div id="settings-colour-bar-2">Social Odd</div>
+                                <div id="settings-colour-bar-3">Social Even</div>
+                                <!--div id="settings-colour-bar-4">Cam Border</div-->
+                            </div>
+                        </div>
+                        
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Social Preset:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <select id="settings-form-social-preset" name="socials">
+                                    <option>Select a social preset</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Game Name:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <input id="settings-form-game" type="text" name="game" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Info/socialbar:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <select id="settings-form-placement">
+                                    <option value="0">Info bar shows at top</option>
+                                    <option value="1">Info bar shows at bottom</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Game Platform:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <select id="settings-form-platform">
+                                    <option value="0">Select Platform/None</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!--div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Show camera border:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <select id="settings-form-camborder" name="placement">
+                                    <option>Select</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div-->
+                    
+                        <div class="settings-content--row">
+                            <button class="btn" id="save-settings">Save changes</button>
+                            <button class="btn" id="refresh-overlay">Restart Overlay</button>
+                            <button class="btn danger right" id="reset-settings">Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div id="settings-reset-content" class="hide">
+                        <div class="settings-header">Reset Overlay Settings?</div>
+
+                        <div class="settings-reset-body">
+                            Are you sure you want to reset overlay settings for the file <span data-file-name></span>?
+                            They will revert back to what they were before your initial changes.
+                        </div>
+
+                        <div class="settings-reset-buttons">
+                            <button class="btn danger" id="confirmed-reset-settings">Yes, reset to default</button>
+                            <button class="btn" id="backout-reset-settings">No, keep as is</button>
+                        </div>
+                    </div>

@@ -1,19 +1,19 @@
 {
     "aliases": [
-        { "id": "dbfz", "original": "dragonballfighterz" },
+        { "id": "blackout", "original": "callofdutyblackops4blackout" },
+        { "id": "bf2", "original": "starwarsbattlefront2" },
         { "id": "dbd", "original": "deadbydaylight" },
-        { "id": "hunt", "original": "huntshowdown" },
+        { "id": "dbfz", "original": "dragonballfighterz" },
+        { "id": "f13", "original": "fridaythe13ththegame" },
+        { "id": "gtav", "original": "grandtheftautov" },
         { "id": "hearthstone", "original": "hearthstone" },
         { "id": "hots", "original": "heroesofthestorm" },
-        { "id": "rdr2", "original": "reddeadredemption2" },
-        { "id": "blackout", "original": "callofdutyblackops4blackout" },
-        { "id": "mtg", "original": "magicthegathering" },
-        { "id": "f13", "original": "fridaythe13ththegame" },
-        { "id": "pubg", "original": "playerunknownsbattlegrounds" },
-        { "id": "gtav", "original": "grandtheftautov" },
-        { "id": "smash", "original": "supersmashbrosultimate" },
+        { "id": "hunt", "original": "huntshowdown" },
         { "id": "lastyear", "original": "lastyearthenightmare" },
-        { "id": "bf2", "original": "starwarsbattlefront2" }
+        { "id": "mtg", "original": "magicthegathering" },
+        { "id": "pubg", "original": "playerunknownsbattlegrounds" },
+        { "id": "rdr2", "original": "reddeadredemption2" },
+        { "id": "smash", "original": "supersmashbrosultimate" }
     ],
     "notices": [
         {
@@ -67,21 +67,7 @@
                 "display": "discord.gg/sohinki"
             }
         ],
-        "youtube_videoA": [
-            {
-                "icon": "facebook",
-                "display": "fb.gg/Sohinki"
-            },
-            {
-                "icon": "twitter",
-                "display": "@Sohinki"
-            },
-            {
-                "icon": "instagram",
-                "display": "@Sohinki"
-            }
-        ],
-        "youtube_videoB": [
+        "youtube": [
             {
                 "icon": "facebook",
                 "display": "fb.gg/Sohinki"
@@ -95,11 +81,11 @@
                 "display": "@Sohinki"
             },
             {
-                "icon": "twitch",
-                "display": "twitch.tv/sohinki"
+                "icon": "discord",
+                "display": "discord.gg/sohinki"
             }
         ],
-        "twitch_stream": [
+        "twitch": [
             {
                 "icon": "facebook",
                 "display": "fb.gg/sohinki"
@@ -131,7 +117,8 @@
             "title": "Default",
             "info_bar": "#006566",
             "info_bar_odd": "#499999",
-            "info_bar_even": "#2c7f7f"
+            "info_bar_even": "#2c7f7f",
+            "acknowledgement_headings": ""
         },
         {
             "id": "artifact",
@@ -140,7 +127,8 @@
             "placement": 0,
             "info_bar": "#000000",
             "info_bar_odd": "#b8240c",
-            "info_bar_even": "#530b06"
+            "info_bar_even": "#530b06",
+            "acknowledgement_headings": ""
         },
         {
             "id": "battleriteroyale",
@@ -149,7 +137,8 @@
             "placement": 0,
             "info_bar": "#1d2c3f",
             "info_bar_odd": "#053269",
-            "info_bar_even": "#35b4ff"
+            "info_bar_even": "#35b4ff",
+            "acknowledgement_headings": ""
         },
         {
             "id": "callofdutyblackops4blackout",
@@ -158,7 +147,9 @@
             "placement": 0,
             "info_bar": "#010101",
             "info_bar_odd": "#fc4f02",
-            "info_bar_even": "#da2d00"
+            "info_bar_even": "#da2d00",
+            "acknowledgement_headings": "",
+            "acknowledgement_headings": ""
         },
         {
             "id": "deadbydaylight",
@@ -167,7 +158,8 @@
             "placement": 0,
             "info_bar": "#2e2829",
             "info_bar_odd": "#c1000c",
-            "info_bar_even": "#980000"
+            "info_bar_even": "#980000",
+            "acknowledgement_headings": ""
         },
         {
             "id": "dota2",
@@ -176,7 +168,8 @@
             "placement": 0,
             "info_bar": "#000000",
             "info_bar_odd": "#b8240c",
-            "info_bar_even": "#530b06"
+            "info_bar_even": "#530b06",
+            "acknowledgement_headings": ""
         },
         {
             "id": "dragonballfighterz",
@@ -185,7 +178,8 @@
             "placement": 1,
             "info_bar": "#d74701",
             "info_bar_odd": "#fe3d00",
-            "info_bar_even": "#ff8601"
+            "info_bar_even": "#ff8601",
+            "acknowledgement_headings": ""
         },
         {
             "id": "forhonor",
@@ -194,7 +188,8 @@
             "placement": 0,
             "info_bar": "#525661",
             "info_bar_odd": "#5a5444",
-            "info_bar_even": "#736c5b"
+            "info_bar_even": "#736c5b",
+            "acknowledgement_headings": ""
         },
         {
             "id": "fortnite",
@@ -203,7 +198,8 @@
             "placement": 0,
             "info_bar": "#13a6d1",
             "info_bar_odd": "#0a59a4",
-            "info_bar_even": "#004289"
+            "info_bar_even": "#004289",
+            "acknowledgement_headings": ""
         },
         {
             "id": "fridaythe13ththegame",
@@ -212,11 +208,8 @@
             "placement": 0,
             "info_bar": "#151f1b",
             "info_bar_odd": "#ef2f27",
-            "info_bar_even": "#ce0010"
-        },
-        {
-            "id": "full",
-            "title": " "
+            "info_bar_even": "#ce0010",
+            "acknowledgement_headings": ""
         },
         {
             "id": "grandtheftautov",
@@ -225,7 +218,8 @@
             "placement": 0,
             "info_bar": "#030303",
             "info_bar_odd": "#4b7c21",
-            "info_bar_even": "#65963b"
+            "info_bar_even": "#65963b",
+            "acknowledgement_headings": ""
         },
         {
             "id": "hearthstone",
@@ -234,7 +228,8 @@
             "placement": 0,
             "info_bar": "#00075e",
             "info_bar_odd": "#beac00",
-            "info_bar_even": "#d3bf06"
+            "info_bar_even": "#d3bf06",
+            "acknowledgement_headings": ""
         },
         {
             "id": "heroesofthestorm",
@@ -243,7 +238,8 @@
             "placement": 0,
             "info_bar": "#2c103e",
             "info_bar_odd": "#5397c4",
-            "info_bar_even": "#094672"
+            "info_bar_even": "#094672",
+            "acknowledgement_headings": ""
         },
         {
             "id": "huntshowdown",
@@ -252,7 +248,8 @@
             "placement": 0,
             "info_bar": "#101015",
             "info_bar_odd": "#434449",
-            "info_bar_even": "#2f2f35"
+            "info_bar_even": "#2f2f35",
+            "acknowledgement_headings": ""
         },
         {
             "id": "lastyearthenightmare",
@@ -261,7 +258,8 @@
             "placement": 0,
             "info_bar": "#333333",
             "info_bar_odd": "#019b49",
-            "info_bar_even": "#379663"
+            "info_bar_even": "#379663",
+            "acknowledgement_headings": ""
         },
         {
             "id": "magicthegathering",
@@ -270,7 +268,8 @@
             "placement": 0,
             "info_bar": "#e61606",
             "info_bar_odd": "#130715",
-            "info_bar_even": "#3f2247"
+            "info_bar_even": "#3f2247",
+            "acknowledgement_headings": ""
         },
         {
             "id": "overwatch",
@@ -279,7 +278,8 @@
             "placement": 0,
             "info_bar": "#006566",
             "info_bar_odd": "#499999",
-            "info_bar_even": "#2c7f7f"
+            "info_bar_even": "#2c7f7f",
+            "acknowledgement_headings": ""
         },
         {
             "id": "playerunknownsbattlegrounds",
@@ -288,7 +288,8 @@
             "placement": 0,
             "info_bar": "#06100a",
             "info_bar_odd": "#e89e30",
-            "info_bar_even": "#ca840d"
+            "info_bar_even": "#ca840d",
+            "acknowledgement_headings": ""
         },
         {
             "id": "reddeadredemption2",
@@ -297,7 +298,8 @@
             "placement": 0,
             "info_bar": "#bd050f",
             "info_bar_odd": "#333333",
-            "info_bar_even": "#282828"
+            "info_bar_even": "#282828",
+            "acknowledgement_headings": ""
         },
         {
             "id": "starwarsbattlefront2",
@@ -306,7 +308,8 @@
             "placement": 0,
             "info_bar": "#0c1723",
             "info_bar_odd": "#00438c",
-            "info_bar_even": "#003268"
+            "info_bar_even": "#003268",
+            "acknowledgement_headings": ""
         },
         {
             "id": "supersmashbrosultimate",
@@ -315,7 +318,8 @@
             "placement": 0,
             "info_bar": "#408C22",
             "info_bar_odd": "#3B7F1F",
-            "info_bar_even": "#59BF2E"
+            "info_bar_even": "#59BF2E",
+            "acknowledgement_headings": ""
         },
         {
             "id": "xcom2",
@@ -324,7 +328,8 @@
             "placement": 0,
             "info_bar": "#3e5155",
             "info_bar_odd": "#2aa9cb",
-            "info_bar_even": "#008eb0"
+            "info_bar_even": "#008eb0",
+            "acknowledgement_headings": ""
         }
     ]
 }

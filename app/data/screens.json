@@ -8,7 +8,7 @@
             "social_cta": "Find me on social",
             "social_preset": "default",
             "video": "/vid/brb.mp4",
-            "show_chairhinki": "yes",
+            "show_chairhinki": "no",
             "colours": {
                 "primary": "#b92b15",
                 "secondary": "#ff7e69",

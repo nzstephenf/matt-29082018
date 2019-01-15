@@ -1,0 +1,88 @@
+                    <div class="settings-modal-close"><i class="fas fa-times"></i></div>
+
+                    <div id="settings-content">
+                        <div class="settings-header">Intermission Screen Settings</div>
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Target File:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <span id="target"></span>
+                            </div>
+                        </div>
+
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Leading Title:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <input id="settings-leading" type="text" name="leading" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Social CTA Text:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <input id="settings-cta" type="text" name="cta" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Social Preset:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <select id="settings-socialpreset" name="socials">
+                                    <option>Select a social preset</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Show Video:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <select id="settings-showvideo" name="showvideo">
+                                    <option>Select video visibility option</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-content--row">
+                            <div class="settings-content--col-left">
+                                <span>Show Chairhinki Quotes:</span>
+                            </div>
+                            <div class="settings-content--col-right">
+                                <select id="settings-showchairhinki" name="showchairhinki">
+                                    <option>Select visible state</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    
+                        <div class="settings-content--row">
+                            <button class="btn" id="settings-save">Save changes</button>
+                            <button class="btn" id="settings-refresh">Restart Screen</button>
+                            <button class="btn danger right" id="settings-reset">Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div id="settings-reset-content" class="hide">
+                        <div class="settings-header">Reset Intermission Screen Settings?</div>
+
+                        <div class="settings-reset-body">
+                            Are you sure you want to reset intermission screen settings for the file <span data-file-name></span>?
+                            They will revert back to what they were before your initial changes.
+                        </div>
+
+                        <div class="settings-reset-buttons">
+                            <button class="btn danger" id="settings-reset-confirmed">Yes, reset to default</button>
+                            <button class="btn" id="settings-reset-backout">No, keep as is</button>
+                        </div>
+                    </div>

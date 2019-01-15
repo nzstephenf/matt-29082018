@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Overlay Control Panel</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/css/settings.css">
+        <script src="/js/jquery.js"></script>
+        <script src="/js/settings.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="success-dialog">
+                <div id="success-dialog-container">
+                    <div id="success-dialog-title"></div>
+                    <div id="success-dialog-content"></div>
+                </div>
+            </div>
+            
+            <div id="menu">
+                <div id="menu-title-heading">
+                    <span>Settings:</span>
+                </div>
+                <ul>
+                    <li data-tab="1"><a href="#">Supporter Goal</a></li>
+                    <li data-tab="2"><a href="#">Notice/CTA</a></li>
+                </ul>
+            </div>
+            
+            <div class="tab" data-tab="1">
+                <div class="header section">
+                    <h1>Manage Supporter Goal</h1>
+                </div>
+
+                <div class="content section">
+                    <div class="form-row">
+                        <div class="form-label">
+                            <span>Current Supporters Count:</span>
+                        </div>
+                        <div class="form-control">
+                            <input id="supporters-form-current" type="number" class="form-control-input">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-label">
+                            <span>Goal:</span>
+                        </div>
+                        <div class="form-control">
+                            <input id="supporters-form-goal" type="number" class="form-control-input">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-label">
+                            <span>Counter Position:</span>
+                        </div>
+                        <div class="form-control">
+                            <select id="supporters-form-position">
+                                <option value="top-left">Top Left</option>
+                                <option value="top-right">Top Right</option>
+                                <option value="bottom-left">Bottom Left</option>
+                                <option value="bottom-right">Bottom Right</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-label">
+                            <span>Show Counter:</span>
+                        </div>
+                        <div class="form-control">
+                            <select id="supporters-form-state">
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer section">
+                    <button class="btn" id="save-supporter-goal">Save Goal Changes</button>
+                </div>
+            </div>
+            
+            <div class="tab" data-tab="2">
+                <div class="header section">
+                    <h1>Notice/CTA Graphic Settings</h1>
+                    <p>The Notice/CTA settings are now global. Changes will update across <strong>all</strong> overlays.</p>
+                </div>
+
+                <div class="content section">
+                    
+                    <div class="form-row">
+                        <div class="form-label">
+                            <span>Select Notice:</span>
+                        </div>
+                        <div class="form-control">
+                            <select id="notice-form-notice"></select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="alert-block" data-field-id="notice_override">
+                            <span>
+                                The notice/cta you've selected will override the delay and duration settings you currently have.
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-label">
+                            <span>Delay:</span>
+                        </div>
+                        <div class="form-control">
+                            <input id="notice-form-delay" min="1" type="number" name="delay" class="form-control-input">
+                            <span class="form-control-input-right-label">minutes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-label">
+                            <span>Duration:</span>
+                        </div>
+                        <div class="form-control">
+                            <input id="notice-form-duration" min="1" type="number" name="delay" class="form-control-input">
+                            <span class="form-control-input-right-label">seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer section">
+                    <button class="btn" id="save-noticecta">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
