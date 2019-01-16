@@ -292,6 +292,8 @@ $(function(){
         
         if($("#info-bar").attr("data-placement") === "1"){
             if($("#supporter-goal-container").hasClass("bottom-left")) $("#supporter-goal-container").addClass("bar-at-bottom");
+        } else {
+            if($("#supporter-goal-container").hasClass("top-left")) $("#supporter-goal-container").addClass("bar-at-top");
         }
         
         if(activeSupporterGoal["state"] === true){
