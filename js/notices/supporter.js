@@ -2,7 +2,7 @@ $(function(){
     var filedir = document.location.href;
     var filename = filedir.substr(filedir.lastIndexOf('/') + 1).replace(".html","");
     
-    var $supportercounter = $("#supporter-counter-container");
+    var $supportercounter = $("#supporter-goal-container");
     // create variables with default
     var theme_primary = "#499999";
     var theme_secondary = "#2c7f7f";
@@ -35,7 +35,7 @@ $(function(){
     // run animation in a loop. delayed 
     setTimeout(function(){
         runAnimation();
-    }, 1.5 * 1000);
+    }, 3.5 * 1000);
     
     function togglePerk(){
         if(!$(".fb-supporter-cta-content li").hasClass("active")) $(".fb-supporter-cta-content li:first").addClass("active");
@@ -52,13 +52,13 @@ $(function(){
     }
     
     function runAnimation(){
-        if($("#supporter-goal-container").hasClass("infobar-top")){
-            if($("#supporter-counter-container").hasClass("top-right")){
-                $("#supporter-counter-back").removeClass("active"); 
+        if(activeSupporter["state"] === true){
+            if(activeSupporter["position"] === "top-right" || activeSupporter["position"] === "bottom-right"){
+                $("#supporter-goal-back").removeClass("active"); 
 
                 setTimeout(function(){
-                    $("#supporter-counter").removeClass("active");
-                    $("#supporter-counter-progress-bar").css("width", "0%");
+                    $("#supporter-goal").removeClass("active");
+                    $("#supporter-goal-progress-bar").css("width", "0%");
                 }, 500);
             }
         }
@@ -86,11 +86,11 @@ $(function(){
                 
                 setTimeout(function(){
                     if(activeSupporter["state"] === true){
-                        if($("#supporter-counter-container").hasClass("top-right")){
-                            $("#supporter-counter-back").addClass("active"); 
+                        if($("#supporter-goal-container").hasClass("top-right")){
+                            $("#supporter-goal-back").addClass("active"); 
 
                             setTimeout(function(){
-                                $("#supporter-counter").addClass("active");   
+                                $("#supporter-goal").addClass("active");   
                                 UpdateSupporterGoalProgressBar();
                             }, 900);
                         }
@@ -106,11 +106,11 @@ $(function(){
     
     function UpdateSupporterGoalProgressBar(){
          // set to zero
-        $("#supporter-counter-progress-bar").css("width", "0%");
+        $("#supporter-goal-progress-bar").css("width", "0%");
         
         setTimeout(function(){
-            var supporterPercentage = (supportersOverlay["current"] / supportersOverlay["goal"] * 100);
-            $("#supporter-counter-progress-bar").css("width", supporterPercentage + "%");
+            var supporterPercentage = (activeSupporter["current"] / activeSupporter["goal"] * 100);
+            $("#supporter-goal-progress-bar").css("width", supporterPercentage + "%");
         }, 1500);
     }
     
