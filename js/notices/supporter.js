@@ -52,7 +52,7 @@ $(function(){
     }
     
     function runAnimation(){
-        if(activeSupporter["state"] === true){
+        if($("#supporter-goal-container").hasClass("infobar-top")){
             if($("#supporter-counter-container").hasClass("top-right")){
                 $("#supporter-counter-back").removeClass("active"); 
 
