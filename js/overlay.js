@@ -199,6 +199,7 @@ $(function(){
                 $.each(socialGroup, function(i, socialItem){
                     socialArray.push({
                         "icon": socialItem.icon,
+                        "icons": socialItem.icons,
                         "display": socialItem.display
                     });
                 });
@@ -208,13 +209,29 @@ $(function(){
         });
         
         $.each(activeOverlay["social"], function(i, item){
-            $("#info-bar-social").append('\n\
-            <li>\n\
-                <div class="info-bar-social-item">\n\
-                    <div class="info-bar-social--icon"><i class="fab fa-'+item.icon+'"></i></div>\n\
-                    <div class="info-bar-social--textcopy">'+item.display+'</div>\n\
-                </div>\n\
-            </li>');
+            if(item.icons && !item.icon){
+                var iconsToAppend = "";
+                
+                $.each(item.icons, function(i, iconItem){
+                    iconsToAppend+= '<i class="fab fa-'+ iconItem +'"></i> ';
+                });
+                
+                $("#info-bar-social").append('\n\
+                <li>\n\
+                    <div class="info-bar-social-item">\n\
+                        <div class="info-bar-social--icon">'+ iconsToAppend +'</div>\n\
+                        <div class="info-bar-social--textcopy">'+item.display+'</div>\n\
+                    </div>\n\
+                </li>');
+            } else {
+                $("#info-bar-social").append('\n\
+                <li>\n\
+                    <div class="info-bar-social-item">\n\
+                        <div class="info-bar-social--icon"><i class="fab fa-'+item.icon+'"></i></div>\n\
+                        <div class="info-bar-social--textcopy">'+item.display+'</div>\n\
+                    </div>\n\
+                </li>');
+            }
         });
         
         // Settings portion of theme setup
