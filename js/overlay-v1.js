@@ -280,8 +280,8 @@ $(function(){
             $("#stream-acknowledgements").addClass("top");
         }
         
-        $("#stream-acknowledgements-left-bg span").css("background", activeOverlay["info_bar_even"]);
-        $("#stream-acknowledgements-right-bg span").css("background", activeOverlay["info_bar_odd"]);
+        $("#stream-acknowledge-left-bg span").css("background", activeOverlay["info_bar_even"]);
+        $("#stream-acknowledge-right-bg span").css("background", activeOverlay["info_bar_odd"]);
     
         $("#supporter-goal-container").addClass(activeSupporterGoal["position"]);
         $("#supporter-goal").css("background-image", "linear-gradient(to top left, black, "+ activeOverlay["info_bar_odd"] +")");
