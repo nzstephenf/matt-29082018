@@ -45,6 +45,28 @@ $(function(){
         });
     }
     
+    setTimeout(function(){
+        SocialRotation();
+    }, 10 * 1000);
+    
+    function SocialRotation(){
+        if(!$("#social-scroll li").hasClass("active")) $("#social-scroll li:first").addClass("active");
+            
+        socialInterval = setInterval(function(){
+            
+            if($("#social-scroll li:last-child").hasClass("active")){
+                $("#social-scroll li:last-child.active").removeClass("active");
+                clearInterval(socialInterval);
+                
+                setTimeout(function(){
+                    SocialRotation();
+                }, 120 * 1000);
+            } else {
+                $("#social-scroll li.active").removeClass("active").next().addClass("active");
+            }
+        }, 5 * 1000);
+    }
+    
     /**
      * Get App Data: From the JSON on the server, get all overlay data and store in variable
      */
@@ -136,14 +158,18 @@ $(function(){
         if(!storedSupporterGoal["state"]) activeSupporterGoal["state"] = true;
         if(!storedSupporterGoal["timestamp"]) activeSupporterGoal["timestamp"] = date.getTime();
         
+        activeOverlay["info_bar"] = appData.info_bar_colour;
+        activeOverlay["info_bar_odd"] = appData.info_bar_odd_colour;
+        activeOverlay["info_bar_even"] = appData.info_bar_even_colour;
+        
         $.each(themesObject, function(i, themeItem){
             if(themeItem.id === theme){
                 activeOverlay["game_name"] = themeItem.title;
                 activeOverlay["platform_id"] = themeItem.platform;
                 activeOverlay["placement"] = themeItem.placement;
-                activeOverlay["info_bar"] = themeItem.info_bar;
-                activeOverlay["info_bar_odd"] = themeItem.info_bar_odd;
-                activeOverlay["info_bar_even"] = themeItem.info_bar_even;
+            //    activeOverlay["info_bar"] = themeItem.info_bar;
+            //    activeOverlay["info_bar_odd"] = themeItem.info_bar_odd;
+            //    activeOverlay["info_bar_even"] = themeItem.info_bar_even;
                 
                 nextStep_gamename = false;
                 nextStep_placement = false;
@@ -154,9 +180,9 @@ $(function(){
                 fallbackOverlay["game_name"] = themeItem.title;
                 fallbackOverlay["platform_id"] = themeItem.platform;
                 fallbackOverlay["placement"] = themeItem.placement;
-                fallbackOverlay["info_bar"] = themeItem.info_bar;
-                fallbackOverlay["info_bar_odd"] = themeItem.info_bar_odd;
-                fallbackOverlay["info_bar_even"] = themeItem.info_bar_even;
+            //    fallbackOverlay["info_bar"] = themeItem.info_bar;
+            //    fallbackOverlay["info_bar_odd"] = themeItem.info_bar_odd;
+            //    fallbackOverlay["info_bar_even"] = themeItem.info_bar_even;
                 
                 nextStep_gamename = false;
                 nextStep_placement = false;
@@ -269,7 +295,6 @@ $(function(){
     function Themeification(){
         $("#info-bar-layout-bg span").css("background", activeOverlay["info_bar"]);
         $("#info-bar").attr("data-placement", activeOverlay["placement"]);
-        
         if($("#info-bar").attr("data-placement") === "1"){
             $("#info-bar").addClass("bottom");
             $("#notice-block").addClass("bottom");

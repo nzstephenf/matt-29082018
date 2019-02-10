@@ -1,4 +1,7 @@
 {
+    "info_bar_colour": "#000",
+    "info_bar_odd_colour": "#042485",
+    "info_bar_even_colour": "#021345",
     "aliases": [
         { "id": "blackout", "original": "callofdutyblackops4blackout" },
         { "id": "bf2", "original": "starwarsbattlefront2" },
