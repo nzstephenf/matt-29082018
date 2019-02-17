@@ -11,7 +11,8 @@ var currentLocation = document.location.href, filename = currentLocation.substr(
     appData = {}, aliasObject = [], themesObject = [], socialsObject = [], socialPresetObject = [], gamePlatformObject = [], activeOverlay = {}, activeSupporterGoal = {}, activeNotice = {}, fallbackOverlay = {};
 
 var storedOverlay = (storedOverlay) ? JSON.parse(storedOverlay) : {}, storedSupporterGoal = (storedSupporterGoal) ? JSON.parse(storedSupporterGoal) : {}, activeNotice = (storedNotice) ? JSON.parse(storedNotice) : {};
-
+var dateVersion = new Date().getTime();
+        
 $(function(){
     
     Init();
@@ -35,7 +36,7 @@ $(function(){
      */
     function GetShell(){
         $.ajax({
-            url: "/app/layouts/overlay/main.html",
+            url: "/app/layouts/overlay/main.html"+"?v="+dateVersion,
             async: false,
             dataType: "html",
             success: function(html){
@@ -71,8 +72,10 @@ $(function(){
      * Get App Data: From the JSON on the server, get all overlay data and store in variable
      */
     function GetAppData(){
+        var date = new Date(), dateVersion = date.getTime();
+        
         $.ajax({
-            url: "/app/data/overlay.json",
+            url: "/app/data/overlay.json"+"?v="+dateVersion,
             async: false,
             dataType: "json",
             contentType: "application/json",
@@ -82,7 +85,7 @@ $(function(){
         });
         
         $.ajax({
-            url: "/app/layouts/settings-modal/overlay.html",
+            url: "/app/layouts/settings-modal/overlay.html"+"?v="+dateVersion,
             async: false,
             dataType: "html",
             success: function(html){
@@ -92,7 +95,7 @@ $(function(){
         
         if(activeNotice["notice"] !== null){
             $.get({
-                url: activeNotice["notice_url"],
+                url: activeNotice["notice_url"] +"?v="+ dateVersion,
                 success: function(rep){
                     $("#notice-block").append(rep);
                     
@@ -140,6 +143,7 @@ $(function(){
         
         if(storedOverlay["social_preset"]) activeOverlay["social_preset"] = storedOverlay["social_preset"];
         if(storedOverlay["platform"]) activeOverlay["platform_id"] = storedOverlay["platform"];
+        if(storedOverlay["placement"]) activeOverlay["placement"] = storedOverlay["placement"];
         activeOverlay["file_name"] = filename;
         activeOverlay["theme"] = theme;
         
@@ -270,6 +274,10 @@ $(function(){
             }
         });
         
+        $("#settings-form-placement option").each(function(i, item){
+            if(item.value == activeOverlay["placement"]) $(this).attr("selected", "selected");
+        });
+        
         $.each(socialPresetObject, function(i, presetItem){
             if(presetItem.id === activeOverlay["social_preset"]){
                 $("#settings-form-social-preset").append("<option value=\""+ presetItem.id+"\" selected=\"selected\">"+presetItem.title+"</option>");
@@ -358,6 +366,7 @@ $(function(){
         if(storedNoticesData["timestamp"] !== cachedTimestamp) changesDetected = true;
         
         if(changesDetected){
+            var date = new Date(), dateVersion = date.getTime();
             activeNotice = storedNoticesData;
             $("#notice-block").removeClass("active");
             
@@ -365,7 +374,7 @@ $(function(){
                 $("#notice-block").html("");
                 
                 $.get({
-                    url: activeNotice["notice_url"],
+                    url: activeNotice["notice_url"]+"?v="+dateVersion,
                     success: function(rep){
                         $("#notice-block").append(rep);
 
@@ -474,7 +483,6 @@ $(function(){
         $("#target").text(filename);
         UpdateInfobarPreview(activeOverlay["theme"]);
         $("#settings-form-gamename").val(activeOverlay["game_name"]);
-        $("#settings-form-social-preset").val(activeOverlay["social_preset"]);
         $("#settings-form-placement").val(activeOverlay["placement"]);
         $("#settings-form-platform").val(activeOverlay["platform_id"]);
         $("select").customSelect();
@@ -534,27 +542,20 @@ $(function(){
     }
     
     function UpdateInfobarPreview(themePreview = "default"){
-        var item_odd = "#499999";
-        var item_even = "#2c7f7f";
-        var item_infobar = "#006566";
-        var gameTitlePreview, platformPreview;
+        var gameTitlePreview, platformPreview, placementPreview;
         
         $.each(themesObject, function(i, themeItem){
             if(themeItem.id === themePreview){
                 // override any values
                 gameTitlePreview = themeItem.title;
                 platformPreview = themeItem.platform_id;
-                if(themeItem.info_bar_odd) item_odd = themeItem.info_bar_odd;
-                if(themeItem.info_bar_even) item_even = themeItem.info_bar_even;
-                if(themeItem.info_bar) item_infobar = themeItem.info_bar;
+                placementPreview = themeItem.placement;
             }
         });
         
-        $("#settings-colour-bar-1").css("background", item_infobar);
-        $("#settings-colour-bar-2").css("background", item_odd);
-        $("#settings-colour-bar-3").css("background", item_even);
         $("#settings-form-game").val(gameTitlePreview);
         $("#settings-form-platform").val(platformPreview);
+        $("#settings-form-placement").val(placementPreview);
     }
     
     function GetPlatformName(platformId = 0){

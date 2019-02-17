@@ -16,6 +16,7 @@
         { "id": "mtg", "original": "magicthegathering" },
         { "id": "pubg", "original": "playerunknownsbattlegrounds" },
         { "id": "rdr2", "original": "reddeadredemption2" },
+        { "id": "re2", "original": "residentevil2" },
         { "id": "smash", "original": "supersmashbrosultimate" }
     ],
     "notices": [
@@ -23,6 +24,7 @@
             "id": "default",
             "title": "(None)",
             "url": "/notices/empty.html",
+            "description": "Don't show any notices/CTA related items on the overlay",
             "override": false
         },
         {
@@ -33,80 +35,32 @@
             "override": true
         }
     ],
-    "social_presets": [
+    "social": [
         {
-            "id": "default",
-            "title": "Facebook Live Gaming"
+            "icon": "twitter",
+            "icon_colour": "",
+            "header": "Memes, Life and Stream Updates",
+            "display": "@Sohinki"
         },
         {
-            "id": "youtube_videoA",
-            "title": "YouTube (no Twitch social)"
+            "icon": "instagram",
+            "icon_colour": "",
+            "header": "Catch me on the gram",
+            "display": "@Sohinki"
         },
         {
-            "id": "youtube_videoB",
-            "title": "YouTube (Twitch incl social)"
+            "icon": "youtube",
+            "icon_colour": "",
+            "header": "Watch more over on YouTube",
+            "display": "youtube.com/sohinki"
         },
         {
-            "id": "twitch_stream",
-            "title": "Twitch Stream"
+            "icon": "discord",
+            "icon_colour": "",
+            "header": "Join the Sohinkington Discord",
+            "display": "discord.gg/sohinki"
         }
     ],
-    "social": {
-        "default": [
-            {
-                "icon": "twitter",
-                "display": "@Sohinki"
-            },
-            {
-                "icon": "instagram",
-                "display": "@Sohinki"
-            },
-            {
-                "icon": "youtube",
-                "display": "youtube.com/sohinki"
-            },
-            {
-                "icon": "discord",
-                "display": "discord.gg/sohinki"
-            }
-        ],
-        "youtube": [
-            {
-                "icon": "facebook",
-                "display": "fb.gg/Sohinki"
-            },
-            {
-                "icon": "twitter",
-                "display": "@Sohinki"
-            },
-            {
-                "icon": "instagram",
-                "display": "@Sohinki"
-            },
-            {
-                "icon": "discord",
-                "display": "discord.gg/sohinki"
-            }
-        ],
-        "twitch": [
-            {
-                "icon": "facebook",
-                "display": "fb.gg/sohinki"
-            },
-            {
-                "icon": "twitter",
-                "display": "@Sohinki"
-            },
-            {
-                "icon": "instagram",
-                "display": "@Sohinki"
-            },
-            {
-                "icon": "youtube",
-                "display": "youtube.com/sohinki"
-            }
-        ]
-    },
     "platform": [
         { "title": "" },
         { "title": "PC" },
@@ -117,222 +71,151 @@
     "theme": [
         {
             "id": "default",
-            "title": "Default",
-            "info_bar": "#006566",
-            "info_bar_odd": "#499999",
-            "info_bar_even": "#2c7f7f",
-            "acknowledgement_headings": ""
+            "title": "Default"
+        },
+        {
+            "id": "anthem",
+            "title": "Anthem",
+            "platform": 1,
+            "placement": 0
+        },
+        {
+            "id": "apex",
+            "title": "Apex Legends",
+            "platform": 1,
+            "placement": 0
         },
         {
             "id": "artifact",
             "title": "Artifact",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#000000",
-            "info_bar_odd": "#b8240c",
-            "info_bar_even": "#530b06",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "battleriteroyale",
             "title": "Battlerite Royale",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#1d2c3f",
-            "info_bar_odd": "#053269",
-            "info_bar_even": "#35b4ff",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "callofdutyblackops4blackout",
             "title": "Call of Duty: BO4 Blackout",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#010101",
-            "info_bar_odd": "#fc4f02",
-            "info_bar_even": "#da2d00",
-            "acknowledgement_headings": "",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "deadbydaylight",
             "title": "Dead by Daylight",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#2e2829",
-            "info_bar_odd": "#c1000c",
-            "info_bar_even": "#980000",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "dota2",
             "title": "Dota 2",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#000000",
-            "info_bar_odd": "#b8240c",
-            "info_bar_even": "#530b06",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "dragonballfighterz",
             "title": "Dragon ball FighterZ",
             "platform": 1,
-            "placement": 1,
-            "info_bar": "#d74701",
-            "info_bar_odd": "#fe3d00",
-            "info_bar_even": "#ff8601",
-            "acknowledgement_headings": ""
+            "placement": 1
         },
         {
             "id": "forhonor",
             "title": "For Honor",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#525661",
-            "info_bar_odd": "#5a5444",
-            "info_bar_even": "#736c5b",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "fortnite",
             "title": "Fortnite",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#13a6d1",
-            "info_bar_odd": "#0a59a4",
-            "info_bar_even": "#004289",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "fridaythe13ththegame",
             "title": "Friday the 13th: The Game",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#151f1b",
-            "info_bar_odd": "#ef2f27",
-            "info_bar_even": "#ce0010",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "grandtheftautov",
             "title": "Grand Theft Auto V",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#030303",
-            "info_bar_odd": "#4b7c21",
-            "info_bar_even": "#65963b",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "hearthstone",
             "title": "Hearthstone",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#00075e",
-            "info_bar_odd": "#beac00",
-            "info_bar_even": "#d3bf06",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "heroesofthestorm",
             "title": "Heroes of the Storm",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#2c103e",
-            "info_bar_odd": "#5397c4",
-            "info_bar_even": "#094672",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "huntshowdown",
             "title": "Hunt: Showdown",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#101015",
-            "info_bar_odd": "#434449",
-            "info_bar_even": "#2f2f35",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "lastyearthenightmare",
             "title": "Last Year: The Nightmare",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#333333",
-            "info_bar_odd": "#019b49",
-            "info_bar_even": "#379663",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "magicthegathering",
             "title": "Magic The Gathering Arena",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#e61606",
-            "info_bar_odd": "#130715",
-            "info_bar_even": "#3f2247",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "overwatch",
             "title": "Overwatch",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#006566",
-            "info_bar_odd": "#499999",
-            "info_bar_even": "#2c7f7f",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "playerunknownsbattlegrounds",
             "title": "PlayerUnknown's Battlegrounds",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#06100a",
-            "info_bar_odd": "#e89e30",
-            "info_bar_even": "#ca840d",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "reddeadredemption2",
             "title": "Red Dead Redemption 2",
             "platform": 2,
-            "placement": 0,
-            "info_bar": "#bd050f",
-            "info_bar_odd": "#333333",
-            "info_bar_even": "#282828",
-            "acknowledgement_headings": ""
+            "placement": 0
+        },
+        {
+            "id": "residentevil2",
+            "title": "Resident Evil 2: The Remake",
+            "platform": 2,
+            "placement": 0
         },
         {
             "id": "starwarsbattlefront2",
             "title": "Star Wars Battlefront II",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#0c1723",
-            "info_bar_odd": "#00438c",
-            "info_bar_even": "#003268",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "supersmashbrosultimate",
             "title": "Super Smash Bros. Ultimate",
             "platform": 4,
-            "placement": 0,
-            "info_bar": "#408C22",
-            "info_bar_odd": "#3B7F1F",
-            "info_bar_even": "#59BF2E",
-            "acknowledgement_headings": ""
+            "placement": 0
         },
         {
             "id": "xcom2",
             "title": "XCOM 2",
             "platform": 1,
-            "placement": 0,
-            "info_bar": "#3e5155",
-            "info_bar_odd": "#2aa9cb",
-            "info_bar_even": "#008eb0",
-            "acknowledgement_headings": ""
+            "placement": 0
         }
     ]
 }
