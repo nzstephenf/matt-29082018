@@ -14,13 +14,6 @@ $(function(){
     if(activeNotice["delay"]) delay = activeNotice["delay"];
     if(activeNotice["duration"]) duration = activeNotice["duration"];
     
-    $.each(appData.theme, function(i, item){
-        if(item.id === theme){
-            if(item.info_bar_odd) theme_primary = item.info_bar_odd;
-            if(item.info_bar_even) theme_secondary = item.info_bar_even;
-        }
-    });
-    
     // with default and themes out of the way, now to see if we should override by colour theme provided in data on attribute
     if($(".fb-supporter-cta").attr("data-primary")) theme_primary = $(".fb-supporter-cta").attr("data-primary");
     if($(".fb-supporter-cta").attr("data-secondary")) theme_secondary = $(".fb-supporter-cta").attr("data-secondary");
@@ -52,14 +45,25 @@ $(function(){
     }
     
     function runAnimation(){
+        // run this every time to keep up to date
+        activeSupporter = JSON.parse(localStorage.getItem("supporters-overlay"));
+        
         if(activeSupporter["state"] === true){
-            if(activeSupporter["position"] === "top-right" || activeSupporter["position"] === "bottom-right"){
-                $("#supporter-goal-back").removeClass("active"); 
-
+            if($("#supporter-goal-container").hasClass("top-right")){
+                $("#supporter-goal-progress-bar").css("width", "0%");
+                
                 setTimeout(function(){
-                    $("#supporter-goal").removeClass("active");
-                    $("#supporter-goal-progress-bar").css("width", "0%");
-                }, 500);
+                    $("#supporter-goal").toggleClass("active end-animation");
+                    $("#supporter-goal-white").toggleClass("active end-animation"); 
+                    $("#supporter-goal-bg").toggleClass("active end-animation"); 
+
+                    // remove class
+                    setTimeout(function(){
+                        $("#supporter-goal-white").removeClass("active end-animation");
+                        $("#supporter-goal-bg").removeClass("active end-animation");
+                        $("#supporter-goal").removeClass("active end-animation");
+                    }, 500);
+                }, 1000);
             }
         }
         
@@ -74,7 +78,7 @@ $(function(){
                     togglePerk();
                 }, 400);
             }, 200);
-        }, 900);
+        }, 1000);
     }
     
     function endAnimation(){
@@ -87,7 +91,8 @@ $(function(){
                 setTimeout(function(){
                     if(activeSupporter["state"] === true){
                         if($("#supporter-goal-container").hasClass("top-right")){
-                            $("#supporter-goal-back").addClass("active"); 
+                            $("#supporter-goal-white").addClass("active"); 
+                            $("#supporter-goal-bg").addClass("active"); 
 
                             setTimeout(function(){
                                 $("#supporter-goal").addClass("active");   
@@ -99,7 +104,7 @@ $(function(){
                 
                 setTimeout(function(){
                     runAnimation();
-                }, 5 * 60000);
+                }, 3200 * 1000);
             }, 200);            
         }, 400);
     }

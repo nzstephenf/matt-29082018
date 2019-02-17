@@ -51,59 +51,21 @@ $(function(){
     }, 10 * 1000);
     
     function SocialRotation(){
-        storedSupporterGoal = JSON.parse(localStorage.getItem("supporters-overlay"));
-        if(storedSupporterGoal["state"] === true){
-            if($("#supporter-goal-container").hasClass("bottom-right")){
-                $("#supporter-goal-progress-bar").css("width", "0%");
+        if(!$("#social-scroll li").hasClass("active")) $("#social-scroll li:first").addClass("active");
+            
+        socialInterval = setInterval(function(){
+            
+            if($("#social-scroll li:last-child").hasClass("active")){
+                $("#social-scroll li:last-child.active").removeClass("active");
+                clearInterval(socialInterval);
                 
                 setTimeout(function(){
-                    $("#supporter-goal").toggleClass("active end-animation");
-                    
-                    setTimeout(function(){
-                        $("#supporter-goal-white").toggleClass("active end-animation"); 
-                        $("#supporter-goal-bg").toggleClass("active end-animation"); 
-
-                        // remove class
-                        setTimeout(function(){
-                            $("#supporter-goal-white").removeClass("active end-animation");
-                            $("#supporter-goal-bg").removeClass("active end-animation");
-                            $("#supporter-goal").removeClass("active end-animation");
-                        }, 500);
-                    }, 1000);
-                }, 500);
+                    SocialRotation();
+                }, 120 * 1000);
+            } else {
+                $("#social-scroll li.active").removeClass("active").next().addClass("active");
             }
-            
-            setTimeout(function(){
-                if(!$("#social-scroll li").hasClass("active")) $("#social-scroll li:first").addClass("active");
-            
-                socialInterval = setInterval(function(){
-
-                    if($("#social-scroll li:last-child").hasClass("active")){
-                        $("#social-scroll li:last-child.active").removeClass("active");
-                        clearInterval(socialInterval);
-
-                        if(storedSupporterGoal["state"] === true && $("#supporter-goal-container").hasClass("bottom-right")){
-                            setTimeout(function(){
-                                $("#supporter-goal-white").addClass("active"); 
-                                $("#supporter-goal-bg").addClass("active"); 
-
-                                setTimeout(function(){
-                                    $("#supporter-goal").addClass("active");            
-                                    UpdateSupporterGoalProgressBar();
-                                }, 1000);  
-                            }, 1000);   
-                        }
-
-                        setTimeout(function(){
-                            SocialRotation();
-                        }, 120 * 1000);
-                    } else {
-                        $("#social-scroll li.active").removeClass("active").next().addClass("active");
-                    }
-                }, 5 * 1000);
-            }, 2000);
-                
-        }
+        }, 5 * 1000);
     }
     
     /**
@@ -435,48 +397,60 @@ $(function(){
     }
     
     function CheckForSupporterGoalUpdates(){
+        
+    }
+    
+    function RestartSupporterGoal(storedSupporterGoal = {}){
+        
+    }
+    
+    function UpdateSupporterGoalProgressBar(){
+        
+    }
+    
+    function CheckForSupporterGoalUpdates2(){
         storedSupporterGoal = JSON.parse(localStorage.getItem("supporters-overlay"));
         var changesDetected = false, cachedTimestamp = activeSupporterGoal["timestamp"];    
         if(storedSupporterGoal["timestamp"] !== cachedTimestamp) changesDetected = true;
         if(changesDetected) RestartSupporterGoal(storedSupporterGoal);
     }
     
-    function RestartSupporterGoal(storedSupporterGoal = {}){
+    function RestartSupporterGoal2(storedSupporterGoal = {}){
         activeSupporterGoal["current"] = storedSupporterGoal["current"];
         activeSupporterGoal["goal"] = storedSupporterGoal["goal"];
         activeSupporterGoal["position"] = storedSupporterGoal["position"];
         activeSupporterGoal["state"] = storedSupporterGoal["state"];
         activeSupporterGoal["timestamp"] = storedSupporterGoal["timestamp"];
-        var $SupporterContainerDiv = $("#supporter-goal-container"), $SupporterDiv = $("#supporter-goal");
         
-        if(activeSupporterGoal["state"] == true){
-            $("#supporter-goal-progress-bar").css("width", "0%");
-            
+        if(activeSupporterGoal["state"] === true){
             setTimeout(function(){
-                if($SupporterDiv.hasClass("active")){
-                    $SupporterDiv.toggleClass("active end-animation");
-                    setTimeout(function(){
-                        $("#supporter-goal-white").toggleClass("active end-animation");
-                        $("#supporter-goal-bg").toggleClass("active end-animation");
-                    }, 500);
-                }
+                $("#supporter-goal-progress-bar").css("width", "0%");
                 
                 setTimeout(function(){
-                    $("#supporter-goal-white").removeAttr("class");
-                    $("#supporter-goal-bg").removeAttr("class");
-                    $("#supporter-goal").removeClass("end-animation");
-                    $SupporterContainerDiv.removeAttr("class");
-                    $SupporterContainerDiv.addClass(activeSupporterGoal["position"]);
+                    if($("#supporter-goal").hasClass("active")) $("#supporter-goal").toggleClass("active end-animation");
+            
+                    $("#supporter-goal-white").toggleClass("active end-animation");     
+                    $("#supporter-goal-bg").toggleClass("active end-animation");  
+                    
+                    setTimeout(function(){
+                        $("#supporter-goal-white").removeClass("active end-animation");     
+                        $("#supporter-goal-bg").removeClass(" active end-animation");
+                        
+                        setTimeout(function(){
+                            $supportergoal.removeAttr("class");
+                            $supportergoal.addClass(activeSupporterGoal["position"]);
 
-                    if($("#info-bar").attr("data-placement") == 1){
-                        if($SupporterContainerDiv.hasClass("infobar-top")) $SupporterContainerDiv.removeClass("infobar-top");
-                        if($SupporterContainerDiv.hasClass("bottom-left") || $SupporterContainerDiv.hasClass("bottom-right")) $SupporterContainerDiv.addClass("infobar-bottom");
-                    } else {
-                        if($SupporterContainerDiv.hasClass(".infobar-bottom")) $SupporterContainerDiv.removeClass("infobar-bottom");
-                        if($SupporterContainerDiv.hasClass("top-left") || $SupporterContainerDiv.hasClass("top-right")) $SupporterContainerDiv.addClass("infobar-top");
-                    }
+                            if($("#info-bar").attr("data-placement") == 1){
+                                if($supportergoal.hasClass("infobar-top")) $supportergoal.removeClass("infobar-top");
+                                if($supportergoal.hasClass("bottom-left") || $supportergoal.hasClass("bottom-right")) $supportergoal.addClass("infobar-bottom");
+                            } else {
+                                if($supportergoal.hasClass(".infobar-bottom")) $supportergoal.removeClass("infobar-bottom");
+                                if($supportergoal.hasClass("top-left") || $supportergoal.hasClass("top-right")) $supportergoal.addClass("infobar-top");
+                            }
+                        }, 1000);
+                    }, 500);
                 }, 1000);
-            }, 500);
+            }, 1000);
             
             setTimeout(function(){
                 $("[data-current-supporter-count]").text(activeSupporterGoal["current"]);
@@ -494,17 +468,15 @@ $(function(){
             }, 2500);
         } else {
             setTimeout(function(){
-                $("#supporter-goal").toggleClass("active end-animation");     
+                $("#supporter-goal").removeClass("active");     
                 
-                setTimeout(function(){
-                    $("#supporter-goal-white").removeClass("active end-animation");   
-                    $("#supporter-goal-bg").removeClass("active end-animation");     
-                }, 500);
+                $("#supporter-goal-white").removeClass("active end-animation");     
+                $("#supporter-goal-bg").removeClass(" active end-animation");     
             }, 2500);
         }
     }
     
-    function UpdateSupporterGoalProgressBar(){
+    function UpdateSupporterGoalProgressBar2(){
          // set to zero
         $("#supporter-goal-progress-bar").css("width", "0%");
         
@@ -513,7 +485,7 @@ $(function(){
             $("#supporter-goal-progress-bar").css("width", supporterPercentage + "%");
         }, 1500);
     }
-
+    
     function ToggleSettings(){
         $("#settings").toggleClass("active");
         $("#settings-modal").toggleClass("active");

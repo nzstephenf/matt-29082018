@@ -159,6 +159,11 @@ $(function(){
         SaveSupporterGoalSettings();
     });
     
+    $("#clear-sub-goal").click(function(){
+        localStorage.removeItem("supporters-overlay");
+        window.location.reload();
+    });
+    
     $("#save-countdown").click(function(){
         SaveCountdownSettings();
     });

@@ -1,5 +1,20 @@
-<link data-notice-styling rel="stylesheet" type="text/css" href="/css/notices/supporter.css?v=1">
-<script data-notice-script src="/js/notices/supporter.js?v=1"></script>
+<script id="required-files">
+    var dateVersion = new Date().getTime();
+
+    var notice_css = [
+        "/css/notices/supporter.css"
+    ], notice_js = [
+        "/js/notices/supporter.js"
+    ];
+    
+    $.each(notice_css, function(i, item){
+        $("#notice-block").append('<link rel="stylesheet" type="text/css" href="'+ item +'?v='+ dateVersion +'">');
+    });
+    
+    $.each(notice_js, function(i, item){
+        $("#notice-block").append('<script src="'+ item +'?v='+ dateVersion +'"><'+'/script>');
+    });
+</script>
 
 <div class="fb-supporter-cta">
     
