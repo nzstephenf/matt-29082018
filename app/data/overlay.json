@@ -17,7 +17,8 @@
         { "id": "pubg", "original": "playerunknownsbattlegrounds" },
         { "id": "rdr2", "original": "reddeadredemption2" },
         { "id": "re2", "original": "residentevil2" },
-        { "id": "smash", "original": "supersmashbrosultimate" }
+        { "id": "smash", "original": "supersmashbrosultimate" },
+        { "id": "toejam", "original": "toejamandearl" }
     ],
     "notices": [
         {
@@ -209,6 +210,12 @@
             "id": "supersmashbrosultimate",
             "title": "Super Smash Bros. Ultimate",
             "platform": 4,
+            "placement": 0
+        },
+        {
+            "id": "toejamandearl",
+            "title": "ToeJam & Earl: Back in the Groove",
+            "platform": 1,
             "placement": 0
         },
         {
