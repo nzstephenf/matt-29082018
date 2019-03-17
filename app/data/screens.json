@@ -148,7 +148,8 @@
         },
         {
             "id": "starting-soon",
-            "title": "The stream is about to start",
+            "title": "The stream is starting soon",
+            "secondary": "Making a coffee and we'll start!",
             "title_secondary": "",
             "social_cta": "Find me on social",
             "social_preset": "default",
@@ -157,7 +158,7 @@
             "show_chairhinki": "no",
             "colours": {
                 "primary": "#009999",
-                "secondary": "#4cffff",
+                "secondary": "#005556",
                 "dark": "#267f7f",
                 "light": "#00cccc"
             },
