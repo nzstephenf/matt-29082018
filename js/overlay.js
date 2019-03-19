@@ -328,6 +328,10 @@ $(function(){
             if(item.value == activeOverlay["placement"]) $(this).attr("selected", "selected");
         });
         
+        $("#settings-form-sponsored option").each(function(i, item){
+            if(item.value == activeOverlay["sponsored"]) $(this).attr("selected", "selected");
+        });
+        
         $.each(socialPresetObject, function(i, presetItem){
             if(presetItem.id === activeOverlay["social_preset"]){
                 $("#settings-form-social-preset").append("<option value=\""+ presetItem.id+"\" selected=\"selected\">"+presetItem.title+"</option>");
@@ -385,7 +389,6 @@ $(function(){
         $("#info-bar-social li.odd").css("background", activeOverlay["info_bar_odd"]);
         
         if(activeOverlay["sponsored"]){
-            $("#info-bar-sponsored-text").html("This live stream/vod is sponsored by <span>"+ activeOverlay["sponsored_by"]+ "</span>");
             $("#info-bar-current-header span").text("Sponsored Game:");
             $("#info-bar-layout-bg span").css("background", "#FFD700");
             $("#info-bar-current-header").css("color", "#000000");
@@ -394,32 +397,6 @@ $(function(){
         }
         
         StartAnimation();
-    }
-    
-    function supporterText(){
-        $("#info-bar-current-header").addClass("fade-out");
-        $("#info-bar-current-game").addClass("fade-out");
-        $("#info-bar-current-platform").addClass("fade-out");
-        
-        setTimeout(function(){
-            $("#info-bar-sponsored-text").removeClass("fade-out");
-            
-            setTimeout(function(){
-                $("#info-bar-sponsored-text").addClass("fade-out");
-                
-                setTimeout(function(){
-                    $("#info-bar-current-header").removeClass("fade-out");
-                    $("#info-bar-current-game").removeClass("fade-out");
-                    $("#info-bar-current-platform").removeClass("fade-out");
-
-                    setTimeout(function(){
-                        supporterText();
-                    }, 32000);
-                    
-                }, 1000);
-            }, 10000);
-        }, 1000);
-        
     }
     
     function StartAnimation(){
@@ -583,6 +560,8 @@ $(function(){
     function ShowSettings(){
         $("#target").text(filename);
         UpdateInfobarPreview(activeOverlay["theme"]);
+        $("#settings-form-sponsored").val(activeOverlay["sponsored"]);
+        $("#settings-form-sponsored-by").val(activeOverlay["sponsored_by"]);
         $("#settings-form-gamename").val(activeOverlay["game_name"]);
         $("#settings-form-placement").val(activeOverlay["placement"]);
         $("#settings-form-platform").val(activeOverlay["platform_id"]);
@@ -591,7 +570,8 @@ $(function(){
     
     function ApplySettingsChanges(alterStorage = false){
         var filteredPlacement, filteredPlatform,
-            filteredSocialPreset, filteredTheme;
+            filteredSocialPreset, filteredTheme,
+            filteredSponsored;
 
         if(alterStorage){
             if($("#settings-form-placement").val() !== null){
@@ -604,6 +584,12 @@ $(function(){
                 filteredPlatform = $("#settings-form-platform").val();
             } else {
                 filteredPlatform = activeOverlay["platform_id"];
+            }
+            
+            if($("#settings-form-sponsored").val() !== null){
+                filteredSponsored = $("#settings-form-sponsored").val();
+            } else {
+                filteredSponsored = activeOverlay["sponsored"];
             }
             
             if($("#settings-form-themes").val() !== null){
@@ -622,7 +608,9 @@ $(function(){
                 "theme": filteredTheme,
                 "game_name": $("#settings-form-game").val(),
                 "placement": filteredPlacement,
-                "platform": filteredPlatform
+                "platform": filteredPlatform,
+                "sponsored": filteredSponsored,
+                "sponsored_by": $("#settings-form-sponsored-by").val()
             };
             
             localStorage.setItem("overlay-"+ filename, JSON.stringify(newStorageData));
