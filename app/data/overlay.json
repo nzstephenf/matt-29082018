@@ -99,6 +99,14 @@
             "placement": 0
         },
         {
+            "id": "bioshock",
+            "title": "Bioshock",
+            "platform": 1,
+            "placement": 0,
+            "sponsored": true,
+            "sponsored_by": "Discord"
+        },
+        {
             "id": "callofdutyblackops4blackout",
             "title": "Call of Duty: BO4 Blackout",
             "platform": 1,

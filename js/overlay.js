@@ -213,6 +213,8 @@ $(function(){
                 activeOverlay["game_name"] = themeItem.title;
                 activeOverlay["platform_id"] = themeItem.platform;
                 activeOverlay["placement"] = themeItem.placement;
+                if(themeItem.sponsored) activeOverlay["sponsored"] = themeItem.sponsored;
+                if(themeItem.sponsored_by) activeOverlay["sponsored_by"] = themeItem.sponsored_by;
             //    activeOverlay["info_bar"] = themeItem.info_bar;
             //    activeOverlay["info_bar_odd"] = themeItem.info_bar_odd;
             //    activeOverlay["info_bar_even"] = themeItem.info_bar_even;
@@ -226,6 +228,9 @@ $(function(){
                 fallbackOverlay["game_name"] = themeItem.title;
                 fallbackOverlay["platform_id"] = themeItem.platform;
                 fallbackOverlay["placement"] = themeItem.placement;
+                
+                if(themeItem.sponsored) fallbackOverlay["sponsored"] = themeItem.sponsored;
+                if(themeItem.sponsored_by) fallbackOverlay["sponsored_by"] = themeItem.sponsored_by;
             //    fallbackOverlay["info_bar"] = themeItem.info_bar;
             //    fallbackOverlay["info_bar_odd"] = themeItem.info_bar_odd;
             //    fallbackOverlay["info_bar_even"] = themeItem.info_bar_even;
@@ -376,7 +381,42 @@ $(function(){
         $("#info-bar-social li.even").css("background", activeOverlay["info_bar_even"]);
         $("#info-bar-social li.odd").css("background", activeOverlay["info_bar_odd"]);
         
+        if(activeOverlay["sponsored"]){
+            $("#info-bar-sponsored-text").html("This live stream/vod is sponsored by <span>"+ activeOverlay["sponsored_by"]+ "</span>");
+            $("#info-bar-current-header span").text("Sponsored Game:");
+            $("#info-bar-layout-bg span").css("background", "#FFD700");
+            $("#info-bar-current-header").css("color", "#000000");
+            $("#info-bar-current-game").css("color", "#777777");
+            $("#info-bar-current-platform").css("color", "#777777");
+        }
+        
         StartAnimation();
+    }
+    
+    function supporterText(){
+        $("#info-bar-current-header").addClass("fade-out");
+        $("#info-bar-current-game").addClass("fade-out");
+        $("#info-bar-current-platform").addClass("fade-out");
+        
+        setTimeout(function(){
+            $("#info-bar-sponsored-text").removeClass("fade-out");
+            
+            setTimeout(function(){
+                $("#info-bar-sponsored-text").addClass("fade-out");
+                
+                setTimeout(function(){
+                    $("#info-bar-current-header").removeClass("fade-out");
+                    $("#info-bar-current-game").removeClass("fade-out");
+                    $("#info-bar-current-platform").removeClass("fade-out");
+
+                    setTimeout(function(){
+                        supporterText();
+                    }, 32000);
+                    
+                }, 1000);
+            }, 10000);
+        }, 1000);
+        
     }
     
     function StartAnimation(){
@@ -388,6 +428,12 @@ $(function(){
         } else {
             if($("#supporter-goal-container").hasClass("top-left")) $("#supporter-goal-container").addClass("bar-at-top");
             if($("#supporter-goal-container").hasClass("top-right")) $("#supporter-goal-container").addClass("bar-at-top");
+        }
+        
+        if(activeOverlay["sponsored"]){ 
+            setTimeout(function(){
+                supporterText();
+            }, 32000);
         }
         
         if(activeSupporterGoal["state"] === true){
