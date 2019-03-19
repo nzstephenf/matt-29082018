@@ -248,6 +248,9 @@ $(function(){
             nextStep_gamename = false;
         }
         
+        if(storedOverlay["sponsored"]) activeOverlay["sponsored"] = storedOverlay["sponsored"];
+        if(storedOverlay["sponsored_by"]) activeOverlay["sponsored_by"] = storedOverlay["sponsored_by"];
+        
         if(nextStep_gamename) activeOverlay["game_name"] = "Line One Example Text Copy";
         document.title = activeOverlay["game_name"];
         
