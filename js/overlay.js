@@ -389,7 +389,7 @@ $(function(){
         $("#info-bar-social li.odd").css("background", activeOverlay["info_bar_odd"]);
         
         if(activeOverlay["sponsored"]){
-            $("#info-bar-current-header span").text("Sponsored Game:");
+           // $("#info-bar-current-header span").text("Sponsored Game:");
             $("#info-bar-layout-bg span").css("background", "#FFD700");
             $("#info-bar-current-header").css("color", "#000000");
             $("#info-bar-current-game").css("color", "#777777");
@@ -408,12 +408,6 @@ $(function(){
         } else {
             if($("#supporter-goal-container").hasClass("top-left")) $("#supporter-goal-container").addClass("bar-at-top");
             if($("#supporter-goal-container").hasClass("top-right")) $("#supporter-goal-container").addClass("bar-at-top");
-        }
-        
-        if(activeOverlay["sponsored"]){ 
-            setTimeout(function(){
-                supporterText();
-            }, 32000);
         }
         
         if(activeSupporterGoal["state"] === true){
