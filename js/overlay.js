@@ -310,6 +310,10 @@ $(function(){
             }
         });
         
+        if(!activeOverlay["info_bar"]) activeOverlay["info_bar"] = appData.info_bar_colour;
+        if(!activeOverlay["info_bar_odd"]) activeOverlay["info_bar_odd"] = appData.info_bar_odd_colour;
+        if(!activeOverlay["info_bar_even"]) activeOverlay["info_bar_even"] = appData.info_bar_even_colour;
+        
         // Settings portion of theme setup
         $.each(themesObject, function(i, themeItem){
             if(themeItem.id === "full") return;
