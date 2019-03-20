@@ -204,10 +204,6 @@ $(function(){
         if(!storedSupporterGoal["state"]) activeSupporterGoal["state"] = true;
         if(!storedSupporterGoal["timestamp"]) activeSupporterGoal["timestamp"] = date.getTime();
         
-        activeOverlay["info_bar"] = appData.info_bar_colour;
-        activeOverlay["info_bar_odd"] = appData.info_bar_odd_colour;
-        activeOverlay["info_bar_even"] = appData.info_bar_even_colour;
-        
         $.each(themesObject, function(i, themeItem){
             if(themeItem.id === theme){
                 activeOverlay["game_name"] = themeItem.title;
@@ -215,9 +211,9 @@ $(function(){
                 activeOverlay["placement"] = themeItem.placement;
                 if(themeItem.sponsored) activeOverlay["sponsored"] = themeItem.sponsored;
                 if(themeItem.sponsored_by) activeOverlay["sponsored_by"] = themeItem.sponsored_by;
-            //    activeOverlay["info_bar"] = themeItem.info_bar;
-            //    activeOverlay["info_bar_odd"] = themeItem.info_bar_odd;
-            //    activeOverlay["info_bar_even"] = themeItem.info_bar_even;
+                activeOverlay["info_bar"] = themeItem.info_bar;
+                activeOverlay["info_bar_odd"] = themeItem.info_bar_odd;
+                activeOverlay["info_bar_even"] = themeItem.info_bar_even;
                 
                 nextStep_gamename = false;
                 nextStep_placement = false;
@@ -231,9 +227,9 @@ $(function(){
                 
                 if(themeItem.sponsored) fallbackOverlay["sponsored"] = themeItem.sponsored;
                 if(themeItem.sponsored_by) fallbackOverlay["sponsored_by"] = themeItem.sponsored_by;
-            //    fallbackOverlay["info_bar"] = themeItem.info_bar;
-            //    fallbackOverlay["info_bar_odd"] = themeItem.info_bar_odd;
-            //    fallbackOverlay["info_bar_even"] = themeItem.info_bar_even;
+                fallbackOverlay["info_bar"] = themeItem.info_bar;
+                fallbackOverlay["info_bar_odd"] = themeItem.info_bar_odd;
+                fallbackOverlay["info_bar_even"] = themeItem.info_bar_even;
                 
                 nextStep_gamename = false;
                 nextStep_placement = false;
