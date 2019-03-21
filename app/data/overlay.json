@@ -112,8 +112,9 @@
             "title": "Bioshock™ Remastered",
             "platform": 1,
             "placement": 0,
-            "sponsored": true,
-            "sponsored_by": "Discord"
+            "info_bar": "#CEBA7D",
+            "info_bar_odd": "#5D9A9D",
+            "info_bar_even": "#3E3E3E"
         },
         {
             "id": "callofdutyblackops4blackout",
