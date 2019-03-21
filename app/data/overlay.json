@@ -72,7 +72,7 @@
     "theme": [
         {
             "id": "default",
-            "title": "Line One Example Text Copy Load in",
+            "title": "Default",
             "info_bar": "#006566",
             "info_bar_odd": "#499999",
             "info_bar_even": "#2c7f7f"
