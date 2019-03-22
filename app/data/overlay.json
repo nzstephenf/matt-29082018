@@ -271,9 +271,9 @@
             "title": "Sekiro: Shadows Die Twice",
             "platform": 1,
             "placement": 0,
-            "info_bar": "#0c1723",
-            "info_bar_odd": "#00438c",
-            "info_bar_even": "#003268"
+            "info_bar": "#525661",
+            "info_bar_odd": "#5a5444",
+            "info_bar_even": "#736c5b"
         },
         {
             "id": "starwarsbattlefront2",
