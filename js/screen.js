@@ -165,14 +165,6 @@ $(function(){
         toggleSettings();
     });
     
-    $("video").on('play', function(e) {
-        $("body").addClass("active");
-        
-        setTimeout(function(){
-            $("body").removeClass("active");
-        }, 10000);
-    });
-    
     $("#settings-trigger").click(function(){
         toggleSettings();
         settingsPopup();
@@ -251,8 +243,8 @@ $(function(){
             localStorage.setItem("screen-"+ filename, JSON.stringify(newStorageData));
         }
         
-       // toggleSettings();
-       // restart();
+        toggleSettings();
+        restart();
     }
     
     function restart(){
