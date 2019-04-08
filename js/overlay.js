@@ -48,12 +48,12 @@ $(function(){
     
     setTimeout(function(){
         SocialRotation();
-    }, 10 * 1000);
+    }, 42.5 * 1000);
     
     function SocialRotation(){
         storedSupporterGoal = JSON.parse(localStorage.getItem("supporters-overlay"));
         if(storedSupporterGoal["state"] === true){
-            if($("#supporter-goal-container").hasClass("bottom-right")){
+            if($("#supporter-goal-container").hasClass("bottom-right") && $("#supporter-goal").hasClass("active")){
                 $("#supporter-goal-progress-bar").css("width", "0%");
                 
                 setTimeout(function(){
@@ -92,11 +92,37 @@ $(function(){
                                     UpdateSupporterGoalProgressBar();
                                 }, 1000);  
                             }, 1000);   
+                            
+                            // new change start
+                            
+                            setTimeout(function(){
+                                $("#supporter-goal-progress-bar").css("width", "0%");
+
+                                setTimeout(function(){
+                                    $("#supporter-goal").toggleClass("active end-animation");
+
+                                    setTimeout(function(){
+                                        $("#supporter-goal-white").toggleClass("active end-animation"); 
+                                        $("#supporter-goal-bg").toggleClass("active end-animation"); 
+
+                                        // remove class
+                                        setTimeout(function(){
+                                            $("#supporter-goal-white").removeClass("active end-animation");
+                                            $("#supporter-goal-bg").removeClass("active end-animation");
+                                            $("#supporter-goal").removeClass("active end-animation");
+                                        }, 500);
+                                    }, 1000);
+                                }, 500);
+                            }, 15000);
+                
+                        // new change end
+                            
+                            
                         }
 
                         setTimeout(function(){
                             SocialRotation();
-                        }, 120 * 1000);
+                        }, 120 * 1000); //TODO switch back to 120
                     } else {
                         $("#social-scroll li.active").removeClass("active").next().addClass("active");
                     }
@@ -421,8 +447,45 @@ $(function(){
                 }, 1000);  
             }, 1000);   
         }
+        
+        //SubGoalFunctionality();
     }
-    
+    /**
+    function SubGoalFunctionality(){
+        activateFunction = false;
+        subgoalCache = activeSupporterGoal;
+        
+        if(activeSupporterGoal["state"] === true && activeSupporterGoal["position"] !== "bottom-right") activeFunction = true;
+
+        if(activeFunction){
+            setTimeout(function(){
+                $("#supporter-goal-progress-bar").css("width", "0%");
+
+                setTimeout(function(){
+                    $("#supporter-goal").toggleClass("active end-animation");
+
+                    setTimeout(function(){
+                        $("#supporter-goal-white").toggleClass("active end-animation"); 
+                        $("#supporter-goal-bg").toggleClass("active end-animation"); 
+
+                        // remove class
+                        setTimeout(function(){
+                            $("#supporter-goal-white").removeClass("active end-animation");
+                            $("#supporter-goal-bg").removeClass("active end-animation");
+                            $("#supporter-goal").removeClass("active end-animation");
+
+                            setTimeout(function(){
+                                SubGoalFunctionality();
+                            }, 10 * 1000); // 2 minutes
+                        }, 500);
+                    }, 1000);
+                }, 500);
+            }, 15000);
+        } else {
+            setTimeout(SubGoalFunctionality(), 10 * 1000);
+        }
+    }
+    **/
     function CheckForNoticesUpdates(){
         var storedNoticesData = JSON.parse(localStorage.getItem("notice-cta"));
         var changesDetected = false, cachedTimestamp = activeNotice["timestamp"];

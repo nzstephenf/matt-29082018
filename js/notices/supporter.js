@@ -48,7 +48,7 @@ $(function(){
         // run this every time to keep up to date
         activeSupporter = JSON.parse(localStorage.getItem("supporters-overlay"));
         
-        if(activeSupporter["state"] === true){
+        if(activeSupporter["state"] === true && $("#supporter-goal").hasClass("active")){
             if($("#supporter-goal-container").hasClass("top-right")){
                 $("#supporter-goal-progress-bar").css("width", "0%");
                 
@@ -102,9 +102,33 @@ $(function(){
                     }
                 }, 900);
                 
+                if(activeSupporter["state"] === true){
+                    setTimeout(function(){
+                        if($("#supporter-goal-container").hasClass("top-right")){
+                            $("#supporter-goal-progress-bar").css("width", "0%");
+
+                            setTimeout(function(){
+                                $("#supporter-goal").toggleClass("active end-animation");
+
+                                setTimeout(function(){
+                                    $("#supporter-goal-white").toggleClass("active end-animation"); 
+                                    $("#supporter-goal-bg").toggleClass("active end-animation"); 
+
+                                    // remove class
+                                    setTimeout(function(){
+                                        $("#supporter-goal-white").removeClass("active end-animation");
+                                        $("#supporter-goal-bg").removeClass("active end-animation");
+                                        $("#supporter-goal").removeClass("active end-animation");
+                                    }, 500);
+                                }, 1000);
+                            }, 500);
+                        }
+                    }, 15 * 1000);
+                }
+                
                 setTimeout(function(){
                     runAnimation();
-                }, 3200 * 1000);
+                }, 320 * 1000);
             }, 200);            
         }, 400);
     }

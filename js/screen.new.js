@@ -99,10 +99,13 @@ $(function(){
         //$("#tint-bg").attr("data-colour", activeScreen["theme_secondary"]);
         $("#leading-text-bg").attr("data-colour", activeScreen["theme_secondary"]);
         $(".top-line").attr("data-colour", activeScreen["theme_secondary"]);
+        $(".primary-colour-text").attr("data-colour", activeScreen["theme_secondary"]);
+        $(".primary-colour-bg").attr("data-colour", activeScreen["theme_secondary"]);
         
         setTheme($("#sidebar-bg"));
         setTheme($("#leading-text-bg"));
-        setThemeEach($("#social .top-line"), "color");
+        //setThemeEach($("#social .top-line"), "color");
+        setThemeEach($("#social .primary-colour-text"), "color");
         
         $.each(appData.social_preset, function(i, presetItem){
             if(presetItem.id === activeScreen["social_preset"]){
