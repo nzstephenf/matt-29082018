@@ -95,7 +95,7 @@ $(function(){
         $("[data-volume-control]").attr("volume", activeScreen["volume"]);
         
         var videoVisible = activeScreen["theme_show_video"];
-        if(videoVisible === "yes") $("#video-source").attr("src", activeScreen["video_url"]);
+        if(videoVisible !== "no") $("#video-source").attr("src", activeScreen["video_url"]);
         
         getTheme();
     }
