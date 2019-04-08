@@ -1,16 +1,13 @@
 /**
- * Matt Stream Screens
+ * Stream Intermission 2019 Update
  */
 
-// Access appData and other variables outside for global use
-var appData = {};
-var activeScreen = {};
-var socialData = {};
+var appData = {}, activeScreen = {}, socialData = {}, currentLocation = document.location.href,
+    filename = currentLocation.substr(currentLocation.lastIndexOf('/') + 1).replace(".html", ""), storedSupporterGoal = localStorage.getItem("supporters-overlay"), storedScreen = localStorage.getItem("screen-"+ filename);
 
-// File name variable
-var currentLocation = document.location.href;
-var filename = currentLocation.substr(currentLocation.lastIndexOf('/') + 1).replace(".html", "");
-
+var storedScreen = (storedScreen) ? JSON.parse(storedScreen) : {}, storedSupporterGoal = (storedSupporterGoal) ? JSON.parse(storedSupporterGoal) : {};
+var dateVersion = new Date().getTime();
+ 
 $(function(){
     
     var videoPlayer = document.getElementById("video-source");
@@ -24,9 +21,8 @@ $(function(){
         }
     });
     
-    // Get settings holder and append to app
     $.ajax({
-        url: "/app/layouts/intermission-screen/global.html",
+        url: "/app/layouts/screen/global.html",
         async: false,
         dataType: "html",
         success: function(data){
@@ -34,9 +30,8 @@ $(function(){
         }
     });
     
-    // Get settings holder and append to app
     $.ajax({
-        url: "/app/layouts/settings-modal/intermission-screen.html",
+        url: "/app/layouts/settings-modal/screen.html",
         async: false,
         dataType: "html",
         success: function(data){
@@ -44,29 +39,22 @@ $(function(){
         }
     });
     
-    /**
-     * Get relevant cookies from browser for app and set them as global variables
-     */
-    var cookie_leading = getCookie("intermission_leading_" + filename);
-    var cookie_cta = getCookie("intermission_cta_" + filename);
-    var cookie_socialpreset = getCookie("intermission_socialpreset_" + filename);
-    var cookie_showvideo = getCookie("intermission_showvideo_" + filename);
-    var cookie_volume = getCookie("intermission_volume_" + filename);
-    var cookie_showchairhinki = getCookie("intermission_showchairhinki_" + filename);
-    
-    // Default values
-    activeScreen["theme_primary"] = "#499999";
-    activeScreen["theme_secondary"] = "#2c7f7f";
-    activeScreen["theme_triangle"] = "#006566";
-    activeScreen["theme_text"] = "#f3f3f3";
-    activeScreen["social_preset"] = "default";
-    activeScreen["theme_show_video"] = "yes";
-    activeScreen["social_items"] = {};
+    activeScreen = {
+        "title": "Line One Example Text Copy",
+        "secondary": "Line Two Example Text Copy",
+        "theme_primary": "#499999",
+        "theme_secondary": "#2c7f7f",
+        "theme_text": "#f3f3f3",
+        "social_preset": "default",
+        "theme_show_video": "yes",
+        "social_items": {}
+    };
     
     $.each(appData.screen, function(i, item){
         if(item.id === $("html").attr("data-screen")){
             activeScreen["theme"] = item.id;
             activeScreen["title"] = item.title;
+            if(item.secondary) activeScreen["secondary"] = item.secondary;
             activeScreen["social_cta"] = item.social_cta;
             if(item.social_preset) activeScreen["social_preset"] = item.social_preset;
             activeScreen["video_url"] = item.video;
@@ -90,59 +78,41 @@ $(function(){
         }
     });
     
-    setupApp();
+    initApp();
     
-    function setupApp(){
+    function initApp(){
+        if(storedScreen["title"]) activeScreen["title"] = storedScreen["title"];
+        if(storedScreen["secondary"]) activeScreen["secondary"] = storedScreen["secondary"];
+        if(storedScreen["social_preset"]) activeScreen["social_preset"] = storedScreen["social_preset"];
+        if(storedScreen["show_video"]) activeScreen["theme_show_video"] = storedScreen["show_video"];
+        if(storedScreen["volume"]) activeScreen["volume"] = storedScreen["volume"];
         
-        // override if need be
-        if(cookie_leading) activeScreen["title"] = cookie_leading;
-        if(cookie_cta) activeScreen["social_cta"] = cookie_cta;
-        if(cookie_socialpreset) activeScreen["social_preset"] = cookie_socialpreset;
-        if(cookie_showvideo) activeScreen["theme_show_video"] = cookie_showvideo;
-        if(cookie_volume) activeScreen["theme_volume"] = cookie_volume;
-        if(cookie_showchairhinki) activeScreen["theme_show_chairhinki"] = cookie_showchairhinki;
-        
-        // Set titles
+        // load data in
         $("html head").find("title").text(activeScreen["title"]);
-        $("#coverLeft-top--header span").text(activeScreen["title"]);
-        $("#coverLeft-social-header span").text(activeScreen["social_cta"]);
-        
-        if(activeScreen["theme_show_chairhinki"] === "yes") $("#chairhinki").addClass("active");
-        
-        setTimeout(function(){
-            getTheme();
-        },1000);
+        document.title = activeScreen["title"];
+        $("[data-line-one-copy]").text(activeScreen["title"]);
+        $("[data-line-two-copy]").text(activeScreen["secondary"]);
+        $("[data-volume-control]").attr("volume", activeScreen["volume"]);
         
         var videoVisible = activeScreen["theme_show_video"];
         if(videoVisible === "yes") $("#video-source").attr("src", activeScreen["video_url"]);
+        
+        getTheme();
     }
     
-    $("#volume-control").mousemove(function(){
-        alert("Changed");
-    });
-    
-    // set colours for the screen by adding data to targets
     function getTheme(){
-        var theme_primary = activeScreen["theme_primary"];
-        var theme_secondary = activeScreen["theme_secondary"];
-        var theme_triangle = activeScreen["theme_triangle"];
-        var theme_text = activeScreen["theme_text"];
+        $("#sidebar-bg").attr("data-colour", activeScreen["theme_primary"]);
+        //$("#tint-bg").attr("data-colour", activeScreen["theme_secondary"]);
+        $("#leading-text-bg").attr("data-colour", activeScreen["theme_secondary"]);
+        $(".top-line").attr("data-colour", activeScreen["theme_secondary"]);
+        $(".primary-colour-text").attr("data-colour", activeScreen["theme_secondary"]);
+        $(".primary-colour-bg").attr("data-colour", activeScreen["theme_secondary"]);
         
-        $("#coverLeft-top").attr("data-colour", theme_primary);
-        $("#coverBottom").attr("data-colour", theme_primary);
-        $("#coverLeft-top--header-span").attr("data-colour", theme_secondary);
-        $(".top-line").attr("data-colour", theme_secondary);
-        $(".left").attr("data-colour", theme_secondary);
-        $("#coverLeft-top-triangle").attr("data-colour", "transparent transparent transparent "+ theme_triangle);
+        setTheme($("#sidebar-bg"));
+        setTheme($("#leading-text-bg"));
+        //setThemeEach($("#social .top-line"), "color");
+        setThemeEach($("#social .primary-colour-text"), "color");
         
-        setTheme($("#coverLeft-top"));
-        setTheme($("#coverBottom"));
-        setTheme($("#coverLeft-top--header-span"));
-        setThemeEach($("#coverLeft-social .top-line"), "color");
-        setThemeEach($("#coverLeft-social .left"));
-        setTheme($("#coverLeft-top-triangle"), "border-color");
-        
-        // Settings load up
         $.each(appData.social_preset, function(i, presetItem){
             if(presetItem.id === activeScreen["social_preset"]){
                 $("#settings-socialpreset").append("<option value=\""+ presetItem.id+"\" selected=\"selected\">"+presetItem.title+"</option>");
@@ -150,9 +120,8 @@ $(function(){
                 $("#settings-socialpreset").append("<option value=\""+ presetItem.id+"\">"+presetItem.title+"</option>");
             }
         });
-   }
+    }
     
-    // Set theme, provide a target, an attribute to change and then a value to set it to
     function setTheme(target, targetAttr = "background"){
         $(target).css(targetAttr, $(target).attr("data-colour"));
     }
@@ -163,38 +132,6 @@ $(function(){
         });
     }
     
-    // Initalise Game Art
-    getGameArt();
-    
-    function getGameArt(){
-        // add each game art item to the list, these will be swapped out indefinitely
-        $.each(activeScreen["theme_art"], function(i, item){
-            $("#coverLeft-gameart ul").append('\n\
-                <li>\n\
-                    <img src="/img/game-art/'+item+'">\n\
-                </li>   \n\
-            ');
-        });
-        
-        // set active to first list item
-        $("#coverLeft-gameart ul li:first").addClass("active");
-
-        // toggle
-        toggleGameArt();
-    }
-    
-    function toggleGameArt(){
-        setInterval(function(){
-            if($("#coverLeft-gameart ul li:last-child").hasClass("active")){
-                $("#coverLeft-gameart ul li:last-child.active").removeClass("active");
-                $("#coverLeft-gameart ul li:first").addClass("active");
-            } else {
-                $("#coverLeft-gameart ul li.active").removeClass("active").next().addClass("active");
-            }
-        }, 10 * 1000);
-    }
-        
-    // Initialise Social Media (can have a max of 4)
     getSocial();
     
     function getSocial(){
@@ -218,107 +155,23 @@ $(function(){
         
     }
     
-    shiner();
-    
-    function shiner(){
-        // repeat every 15 seconds
-        setInterval(function(){
-            $("#coverLeft-top-shiner img").removeClass("hide");
-            $("#coverLeft-top-shiner img").css("top", "1080px")
-            
-            // reset position
-            setTimeout(function(){
-                $("#coverLeft-top-shiner img").addClass("hide");
-                setTimeout(function(){
-                    $("#coverLeft-top-shiner img").css("top", "-1080px");          
-                }, 2 * 1000);
-            }, 4 * 1000);
-        }, 15*1000);
-    }
-    
-    getFooter();
-    
-    function getFooter(){
-        var footerData = activeScreen["theme_footer"];
-        
-        $.each(footerData, function(i, item){
-            
-            if(item.line_one && item.line_two != null){
-             $("#coverBottom ul").append('\n\
-                    <li data-duration="'+item.duration+'">\n\
-                        <div class="footer-one">'+item.line_one+'</div>\n\
-                        <div class="footer-two">'+item.line_two+'</div>\n\
-                    </li>   \n\
-                ');
-            } else {
-             $("#coverBottom ul").append('\n\
-                    <li data-duration="'+item.duration+'">\n\
-                        <div class="footer-one">'+item.line_one+'</div>\n\
-                        <div class="footer-two"></div>\n\
-                    </li>   \n\
-                ');
-            }
-        });
-        
-        toggleFooter();
-    }
-    
-    function toggleFooter(){
-        
-        if($("#coverBottom ul li.active").length <= 0) $("#coverBottom ul li:first").addClass("active");
-        
-        if($("#coverBottom ul li:last-child").hasClass("active")){
-            $("#coverBottom ul li:last-child.active").removeClass("active");
-            $("#coverBottom ul li:first").addClass("active");
+    $("[data-play-video]").click(function(){
+        $("#video-source").trigger("play");
+        toggleSettings();
+    });
 
-            setTimeout(function(){
-                toggleFooter();
-            }, $("#coverBottom ul li:first").attr("data-duration") * 1000);
-        } else {
-            $("#coverBottom ul li.active").removeClass("active").next().addClass("active"); 
-
-            setTimeout(function(){
-                toggleFooter();
-            }, $("#coverBottom ul li.active").attr("data-duration") * 1000);
-        }
-    }
+    $("[data-pause-video]").click(function(){
+        $("#video-source").trigger("pause");
+        toggleSettings();
+    });
     
-    chair_quotes();
-    
-    function chair_quotes(){
-        var quotes = activeScreen["theme_chairhinki"];
-        var targetDiv = $("#chairhinki-quote-holder ul");
+    $("video").on('play', function(e) {
+        $("body").addClass("active");
         
-        $.each(quotes, function(i, item){
-            targetDiv.append('\n\
-                <li class="chairhinki-quote" data-duration="'+item.duration+'">\n\
-                    <span>'+item.quote+'</span>\n\
-                </li>   \n\
-            ');
-        });
-        
-        // set active to first list item
-        targetDiv.find("li:first").addClass("active");
-
-        // toggle
-        toggleQuotes();
-    }
-    
-    function toggleQuotes(){
-        var targetDiv = $("#chairhinki-quote-holder ul");
-        
-        if(targetDiv.find("li:last-child").hasClass("active")){
-            targetDiv.find("li:last-child.active").removeClass("active");
-            targetDiv.find("li:first").addClass("active");
-        } else {
-            targetDiv.find("li.active").removeClass("active").next().addClass("active");
-        }
-
         setTimeout(function(){
-            toggleQuotes();
-        }, $("#chairhinki-quote-holder ul li.active").attr("data-duration") * 1000);
-        
-    }
+            $("body").removeClass("active");
+        }, 10000);
+    });
     
     $("#settings-trigger").click(function(){
         toggleSettings();
@@ -330,7 +183,7 @@ $(function(){
     });
     
     $("#settings-refresh").click(function(){
-        applyChangesRestart();
+        restart();
     });
     
     $("#settings-reset").click(function(){
@@ -368,86 +221,45 @@ $(function(){
      */
     function settingsPopup(){
         $("#target").text(filename);
-        $("#settings-leading").val(activeScreen["title"]);
-        $("#settings-cta").val(activeScreen["social_cta"]);
+        $("#settings-title").val(activeScreen["title"]);
+        $("#settings-secondary").val(activeScreen["secondary"]);
         $("#settings-socialpreset").val(activeScreen["social_preset"]);
         $("#settings-showvideo").val(activeScreen["theme_show_video"]);
         $("#settings-showchairhinki").val(activeScreen["theme_show_chairhinki"]);
-        
         // save this til last in the the load up
         $("select").customSelect();
     }
     
-    function applyChangesRestart(writeCookies = false){
-        var filteredSocialPreset = "default";
-        var filteredTheme = "default";
-        var filteredShowVideo = "yes";
-        var filteredShowChairhinki = "yes";
-        
-        if(writeCookies){
-            if($("#settings-socialpreset").val() !== null) filteredSocialPreset = $("#settings-socialpreset").val();
-            if($("#settings-showvideo").val() !== "Select video visibility option") filteredShowVideo = $("#settings-showvideo").val();
-            if($("#settings-volume").val() !== null) filteredVolume = $("#settings-volume").val();
-            if($("#settings-showchairhinki").val() !== null) filteredShowChairhinki = $("#settings-showchairhinki").val();
-            resetCookies();
+    function applyChangesRestart(alterStorage = false){
+        var filteredShowVideo;
+
+        if(alterStorage){
             
-            setCookie("intermission_leading_"+ filename, $("#settings-leading").val());
-            setCookie("intermission_cta_"+ filename, $("#settings-cta").val());
-            setCookie("intermission_volume_"+ filename, $("#settings-volume").val());
-            setCookie("intermission_socialpreset_"+ filename, $("#settings-socialpreset").val());
-            setCookie("intermission_showvideo_"+ filename, filteredShowVideo);
-            setCookie("intermission_volume_"+ filename, $("#settings-volume").val());
-            setCookie("intermission_showchairhinki_"+ filename, filteredShowChairhinki);
+            if($("#settings-showvideo").val() !== null){
+                filteredShowVideo = $("#settings-showvideo").val();
+            } else {
+                filteredShowVideo = true;
+            }
+            
+            var newStorageData = {
+                "title": $("#settings-title").val(),
+                "secondary": $("#settings-secondary").val(),
+                "social_preset": "default",
+                "show_video": filteredShowVideo
+            };
+            
+            localStorage.setItem("screen-"+ filename, JSON.stringify(newStorageData));
         }
         
-        toggleSettings();
-        restart();
+       // toggleSettings();
+       // restart();
     }
     
     function restart(){
         window.location.reload();
     }
     
-    function resetCookies(){
-        removeCookie("intermission_leading_"+ filename);
-        removeCookie("intermission_cta_"+ filename);
-        removeCookie("intermission_socialpreset_"+ filename);
-        removeCookie("intermission_showvideo_"+ filename);
-        removeCookie("intermission_volume_"+ filename);
-        removeCookie("intermission_showchairhinki_"+ filename);
-    }
-    
 });
-
-/**
- * Get cookies based on name
- */
-function getCookie(name){
-    var value = "; " + document.cookie;
-    var parts = value.split("; " + name + "=");
-    if (parts.length == 2) return parts.pop().split(";").shift();
-}
-
-/**
- * Set cookies for the app
- */
-function setCookie(name, value){
-    document.cookie = name +"="+ value +"; expires=Tue, 1 Jan 2030 12:00:00 UTC";
-}
-
-/**
- * Remove cookies from browser by making it expire
- */
-function removeCookie(name){
-    document.cookie = name + "=; expires=Mon, 01 Jan 2018 00:00:00 GMT;";
-}
-
-/**
- * Remove alias
- */
-function deleteCookie(name){
-    removeCookie(name);
-}
 
 /**
  * Provide .reverse() for usage in scripts

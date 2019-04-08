@@ -3,7 +3,7 @@
         {
             "id": "brb",
             "title": "I'll be right back",
-            "title_secondary": "",
+            "secondary": "",
             "countdown": false,
             "social_cta": "Find me on social",
             "social_preset": "default",
@@ -104,7 +104,7 @@
         {
             "id": "stream-end",
             "title": "Thanks for watching!",
-            "title_secondary": "",
+            "secondary": "See you at the next stream",
             "countdown": false,
             "social_cta": "Find me on social",
             "social_preset": "default",
@@ -154,6 +154,7 @@
             "social_cta": "Find me on social",
             "social_preset": "default",
             "video": "/vid/startingsoon.mp4",
+            "show_video": true,
             "countdown": true,
             "show_chairhinki": "no",
             "colours": {
