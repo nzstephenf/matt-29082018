@@ -34,6 +34,13 @@
             "url": "/notices/supporter.html",
             "description": "The FB Stream Supporter CTA has supporter perk info and a CTA link",
             "override": true
+        },
+        {
+            "id": "supporter_stream_sunday",
+            "title": "Supporter Stream Sunday",
+            "url": "/notices/supporter-stream-sunday.html",
+            "description": "This contains the Supporter only stream overlay",
+            "override": true
         }
     ],
     "social": [

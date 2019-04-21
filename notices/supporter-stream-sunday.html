@@ -1,0 +1,60 @@
+<script id="required-files">
+    var dateVersion = new Date().getTime();
+
+    var notice_css = [
+        "/css/notices/supporter-stream-sunday.css"
+    ], notice_js = [
+        "/js/notices/supporter-stream-sunday.js"
+    ];
+    
+    $.each(notice_css, function(i, item){
+        $("#notice-block").append('<link rel="stylesheet" type="text/css" href="'+ item +'?v='+ dateVersion +'">');
+    });
+    
+    $.each(notice_js, function(i, item){
+        $("#notice-block").append('<script src="'+ item +'?v='+ dateVersion +'"><'+'/script>');
+    });
+</script>
+
+<div id="supporter-only-stream">
+    
+    <div id="supporter-only-stream-left">
+        <div id="logo">
+            <img src="/img/notices/supporter-stream-sunday/logo.svg">
+        </div>
+        
+        <div id="supporter-only-scroll">
+            <ul>
+                <li data-duration="45000">
+                    <div class="top">Current Game:</div>
+                    <div class="bottom"><span data-game-info></span> (<span data-platform-info></span>)</div>
+                </li>
+
+                <li data-duration="5000">
+                    <div class="top">Welcome to the</div>
+                    <div class="bottom">Supporter Stream Sunday</div>
+                </li>
+
+                <li data-duration="5000">
+                    <div class="top">Wanna join matches?</div>
+                    <div class="bottom">Post your interest in <em>#supporter-stream-sunday</em> on the Discord</div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div id="supporter-only-stream-right">
+        <div id="sub-label">
+            <span>Newest Addition:</span>
+        </div>
+    </div>
+    
+    <div id="supporter-only-stream-right-sub-count">
+        <span data-current-supporter-count></span> Sohinki Force Members
+    </div>
+    
+    <div id="supporter-only-stream-gradient">
+        <span></span>
+    </div>
+</div>
