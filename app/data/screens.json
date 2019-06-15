@@ -1,9 +1,9 @@
-{
+﻿{
     "screen": [
         {
             "id": "brb",
             "title": "I'll be right back",
-            "secondary": "For the meantime, enjoy this video",
+            "secondary": "In the meantime, enjoy this video",
             "countdown": false,
             "social_cta": "Find me on social",
             "social_preset": "default",
