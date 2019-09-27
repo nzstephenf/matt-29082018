@@ -1,1 +1,24 @@
 @font-face{font-family:'Source Sans Pro';src:url("/fonts/source-sans-pro/SourceSansPro-Black.woff2") format("woff2");font-weight:900;font-style:normal}@font-face{font-family:'Source Sans Pro';src:url("/fonts/source-sans-pro/SourceSansPro-SemiBold.woff2") format("woff2");font-weight:600;font-style:normal}body{font-family:"Source Sans Pro";text-transform:uppercase;background:transparent !important}._4-u8{background:transparent !important}._4-u2,._4-u3,._4-u2>._4-u3{border-radius:0;border:0}.img{display:none}#js_1g{display:none}._5dw9._5dwa,._2l6n,._3-8j{display:none !important}._25zq{background:transparent}._4-u3{border-radius:none;border:0}._2l6d{display:none;background:transparent;border-radius:0;border:0}._2l6d:first-of-type{display:block;margin:-10px 0 0 1020px}._2l6d:first-of-type ._2l6e{display:block}._2l6d:first-of-type ._2l6e ._2l6f{width:auto;display:block;float:left}._2l6d:first-of-type ._2l6e ._2l6f ._2l6g{display:none}._2l6d:first-of-type ._2l6e ._2l6f ._2l6i{width:auto;display:block;position:relative;float:left}._2l6d:first-of-type ._2l6e ._2l6f ._2l6i ._6qad{width:auto;float:left;display:block}._2l6d:first-of-type ._2l6e ._2l6f ._2l6i ._6qad ._2l6j{max-width:308px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;font-weight:900;font-size:25px;letter-spacing:-1.4px;color:#f3f3f3;text-shadow:2px 1px 7px rgba(0,0,0,0.5)}._2l6d:first-of-type ._2l6e ._2l6f ._2l6i ._2l6k{display:none}._2l6d:first-of-type ._2l6e ._2l6l{margin-top:0}._2l6d:first-of-type ._2l6e ._2l6l ._2l6m{font-weight:900;font-size:25px;letter-spacing:-1.4px;color:#ffcc00;text-shadow:2px 1px 7px rgba(0,0,0,0.5)}._2l6d:first-of-type ._2l6e ._6_c8{display:none}._2l6d:first-of-type ._2l6e ._6_c8 ._6_c9{display:none}._6b8i{display:none;background:transparent;border-radius:0;border:0}._6b8i:first-of-type{display:block;margin:-10px 0 0 1500px}._6b8i:first-of-type ._6b8j ._2ymt ._2ymu{display:none}._6b8i:first-of-type ._6b8j ._2ymt ._2yn8 ._6b8h{max-width:308px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;font-weight:900;font-size:25px;letter-spacing:-1.4px;color:#f3f3f3;text-shadow:2px 1px 7px rgba(0,0,0,0.5)}._6b8i:first-of-type ._6b8j ._2ymt ._2yn9{display:none}._6b8i:first-of-type ._6b8j ._2ynd{display:none}
+
+/** Manual add **/
+._3qn7._61-0._2fyi._3qnf{
+    display: block;
+    width: auto;
+    float: left;
+}
+
+._2l6i ._6qad ._2l6j{
+    max-width: 308px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 900;
+    font-size: 25px;
+    letter-spacing: -1.4px;
+    color: #f3f3f3;
+    text-shadow: 2px 1px 7px rgba(0,0,0,0.5);
+}
+
+._2l6k{
+    display: none;
+}
