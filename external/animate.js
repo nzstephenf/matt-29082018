@@ -28,13 +28,11 @@ function EstablishDurationSettings(){
 }
 
 function Rundown(){
+    TransitionIn();
+    
     setTimeout(function(){
-        TransitionIn()
-
-        setTimeout(function(){
-            TransitionOut()
-        }, duration * second);
-    }, 0.5 * second);
+        TransitionOut();
+    }, duration * second);
 }
 
 function TransitionIn(){
