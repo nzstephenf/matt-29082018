@@ -1,6 +1,6 @@
 var second = 1000;
 var minute = 60000;
-var testMode = true;
+var testMode = false;
 var duration;
 
 // divs to animate
