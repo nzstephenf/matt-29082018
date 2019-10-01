@@ -3,35 +3,35 @@
         "DropdownItem": "Hunt: Showdown",
         "GameName": "Hunt: Showdown",
         "GamePlatform": "PC",
-        "Theme": "Black",
-        "Placement": "top"
+        "InfobarTheme": "Black",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Dead by Daylight",
         "GameName": "Dead by Daylight",
         "GamePlatform": "PC",
-        "Theme": "Red",
-        "Placement": "top"
+        "InfobarTheme": "Red",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "World of Warcraft Classic",
         "GameName": "World of Warcraft Classic",
         "GamePlatform": "PC",
-        "Theme": "Grey",
-        "Placement": "top"
+        "InfobarTheme": "Grey",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Dragonball FighterZ",
         "GameName": "Dragonball FighterZ",
         "GamePlatform": "PC",
-        "Theme": "Yellow",
-        "Placement": "bottom"
+        "InfobarTheme": "Yellow",
+        "InfobarPlacement": "bottom"
     },
     {
         "DropdownItem": "RDR2",
         "GameName": "Red Dead Redemption 2",
         "GamePlatform": "PS4",
-        "Theme": "Red",
-        "Placement": "top"
+        "InfobarTheme": "Red",
+        "InfobarPlacement": "top"
     }
 ]
