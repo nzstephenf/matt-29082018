@@ -154,6 +154,13 @@
         "InfobarPlacement": "top"
     },
     {
+        "DropdownItem": "WOW Classic",
+        "GameName": "World of Warcraft Classic",
+        "GamePlatform": "PC",
+        "InfobarTheme": "Black",
+        "InfobarPlacement": "top"
+    },
+    {
         "DropdownItem": "XCOM2",
         "GameName": "XCOM2",
         "GamePlatform": "PC",
