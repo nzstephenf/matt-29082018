@@ -91,6 +91,13 @@
         "InfobarPlacement": "top"
     },
     {
+        "DropdownItem": "Hearthstone Battlegrounds",
+        "GameName": "Hearthstone Backgrounds",
+        "GamePlatform": "PC",
+        "InfobarTheme": "Orange",
+        "InfobarPlacement": "top"
+    },
+    {
         "DropdownItem": "HotS",
         "GameName": "Heroes of the Storm",
         "GamePlatform": "PC",
