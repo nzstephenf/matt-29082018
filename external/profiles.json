@@ -84,6 +84,13 @@
         "InfobarPlacement": "top"
     },
     {
+        "DropdownItem": "GTFO Game",
+        "GameName": "GTFO",
+        "GamePlatform": "PC",
+        "InfobarTheme": "Grey",
+        "InfobarPlacement": "top"
+    },
+    {
         "DropdownItem": "Hearthstone",
         "GameName": "Hearthstone",
         "GamePlatform": "PC",
