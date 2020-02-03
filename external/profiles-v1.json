@@ -3,182 +3,182 @@
         "DropdownItem": "Anthem",
         "GameName": "Anthem",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Black",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Black",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Apex",
         "GameName": "Apex Legends",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Grey",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Grey",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Artifact",
         "GameName": "Artifact",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Black",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Black",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Battlerite",
         "GameName": "Battlerite Royale",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Blue",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Blue",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Bioshock",
         "GameName": "Bioshock™ Remastered",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Orange",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Orange",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Call of Duty Blackout",
         "GameName": "Call of Duty: Black Ops 4 Blackout",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Black",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Black",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Dead by Daylight",
         "GameName": "Dead by Daylight",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Red",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Red",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Dota",
         "GameName": "Dota 2",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Grey",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Grey",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "DBZ",
         "GameName": "Dragonball FighterZ",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Yellow",
-        "OmnibarPlacement": "bottom"
+        "InfobarTheme": "Yellow",
+        "InfobarPlacement": "bottom"
     },
     {
         "DropdownItem": "For Honor",
         "GameName": "For Honor",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Orange",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Orange",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Friday the 13th Game",
         "GameName": "Friday the 13th The Game",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Black",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Black",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "GTAV",
         "GameName": "Grand Theft Auto V",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Green",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Green",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "GTFO Game",
         "GameName": "GTFO",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Grey",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Grey",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Hearthstone",
         "GameName": "Hearthstone",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Yellow",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Yellow",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Hearthstone Battlegrounds",
         "GameName": "Hearthstone Backgrounds",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Orange",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Orange",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "HotS",
         "GameName": "Heroes of the Storm",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Blue",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Blue",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Hunt",
         "GameName": "Hunt Showdown",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Grey",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Grey",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Last of Us",
         "GameName": "The Last of Us Remastered",
         "GamePlatform": "PS4",
-        "OmnibarTheme": "Black",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Black",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Last of Us 2",
         "GameName": "The Last of Us II",
         "GamePlatform": "PS4",
-        "OmnibarTheme": "Black",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Black",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Last Year The Nightmare",
         "GameName": "Last Year: The Nightmare",
         "GamePlatform": "PC/Discord",
-        "OmnibarTheme": "Green",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Green",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Magic Arena",
         "GameName": "Magic The Gathering Arena",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Purple",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Purple",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "RDR2",
         "GameName": "Red Dead Redemption 2",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Red",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Red",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Star Wars Battlefront II",
         "GameName": "Star Wars Battlefront II",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Blue",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Blue",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "Super Smash Bros. Ultimate",
         "GameName": "Super Smash Bros. Ultimate",
         "GamePlatform": "Switch",
-        "OmnibarTheme": "Green",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Green",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "WOW Classic",
         "GameName": "World of Warcraft Classic",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Black",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Black",
+        "InfobarPlacement": "top"
     },
     {
         "DropdownItem": "XCOM2",
         "GameName": "XCOM2",
         "GamePlatform": "PC",
-        "OmnibarTheme": "Purple",
-        "OmnibarPlacement": "top"
+        "InfobarTheme": "Purple",
+        "InfobarPlacement": "top"
     }
 ]
