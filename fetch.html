@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fetch Game Info for Streamlabs Command</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script type="text/javascript">
+            var availablePresets;
+        </script>
+        <!-- Get platform info based on Game Title -->
+        <script type="text/javascript">
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            var outputInfo;
+            var presetsFile = "data/omnibar-presets.json";
+            var games;
+            var xmlHttp = new XMLHttpRequest();
+            
+            xmlHttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200) return storeAndUse(JSON.parse(this.responseText));
+                if(this.status != 200) document.write(urlParams.get("GameName"));
+            };
+            
+            xmlHttp.open("GET", presetsFile, true);
+            xmlHttp.send();
+        
+            function storeAndUse(data){
+                games = data;
+                
+                // use getVar() of "Current Game" to look for the game within the presets to then output something like
+                // He's playing [Heroes of the Storm] on PC. // He's playing [[Red Dead Redemption 2]] on PS4.
+                // He's streaming IRL.
+//                document.getElementById("output").textContent = JSON.parse(this.responseText);
+
+                for(var i=0; i < games.length; i++) if(games[i]["GameName"] == urlParams.get("GameName")){
+                    if(games[i]["GameName"] == "Just Chatting"){
+                        outputInfo = "streaming IRL (Just Chatting)";
+                    } else {
+                        outputInfo = games[i].GameName + " on "+ games[i].GamePlatform;
+                    }
+                }
+                
+                if(outputInfo){
+                    document.write(outputInfo);
+                } else {
+                    document.write(urlParams.get("GameName"));
+                }
+            }
+            
+        </script>
+            
+        <div id="output"></div>    
+    </body>
+</html>

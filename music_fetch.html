@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fetch Music for Streamlabs Command</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script type="text/javascript">
+            var availablePresets;
+        </script>
+        <!-- Get platform info based on Game Title -->
+        <script type="text/javascript">
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            var outputInfo;
+            var access = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user="+ urlParams.get("user") +"&api_key="+ urlParams.get("api_key") +"&page=1&format=json";
+
+            var games;
+            var xmlHttp = new XMLHttpRequest();
+            
+            xmlHttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    return storeAndUse(JSON.parse(this.responseText));
+                }
+            };
+            
+            xmlHttp.open("GET", access, true);
+            xmlHttp.send();
+        
+            function storeAndUse(data){
+                song = data.recenttracks.track[0];
+                var outputText;
+                if(song["@attr"]){
+                    outputText = "The song currently playing is "+ song["artist"]["#text"] +" - "+ song["name"] +" SeemsGood";
+                    document.getElementById("output").innerHTML = outputText;
+                    console.log(outputText);
+                } else {
+                    outputText = "Currently no song playing right now. sohinkiThump";
+                    document.getElementById("output").innerHTML = outputText;
+                    console.log(outputText);
+                }
+            }
+            
+        </script>
+            
+        <div id="output"></div>    
+    </body>
+</html>
