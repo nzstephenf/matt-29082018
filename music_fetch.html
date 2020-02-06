@@ -14,7 +14,7 @@
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             var outputInfo;
-            var access = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user="+ urlParams.get("user") +"&api_key="+ urlParams.get("api_key") +"&page=1&format=json";
+            var access = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user="+ urlParams.get("user") +"&api_key="+ urlParams.get("api_key") +"&page=1&format=json";
 
             var games;
             var xmlHttp = new XMLHttpRequest();
